@@ -1,0 +1,16 @@
+[Mon May 21 14:06:41.803064 2018] [authz_core:error] [pid 11548:tid 1896] [client ::1:13778] AH01630: client denied by server configuration: D:/php/casting/public
+::1 - - [21/May/2018:14:06:41 -0400] "GET / HTTP/1.1" 403 1056 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Mon May 21 14:06:42.010316 2018] [authz_core:error] [pid 11548:tid 1896] [client ::1:13778] AH01630: client denied by server configuration: D:/php/casting/public, referer: http://localhost/
+::1 - - [21/May/2018:14:06:42 -0400] "GET /favicon.ico HTTP/1.1" 403 1042 "http://localhost/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Mon May 21 14:23:50.182697 2018] [authz_core:error] [pid 3272:tid 1912] [client 127.0.0.1:2179] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [21/May/2018:14:23:50 -0400] "GET / HTTP/1.1" 403 1064 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Mon May 21 14:23:50.776379 2018] [authz_core:error] [pid 3272:tid 1912] [client 127.0.0.1:2179] AH01630: client denied by server configuration: D:/php/casting/public, referer: http://local.casting.com/
+127.0.0.1 - - [21/May/2018:14:23:50 -0400] "GET /favicon.ico HTTP/1.1" 403 1050 "http://local.casting.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Thu May 24 23:31:57.798000 2018] [authz_core:error] [pid 3320:tid 1948] [client 127.0.0.1:1070] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [24/May/2018:23:31:57 -0400] "GET / HTTP/1.1" 403 1063 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Thu May 24 23:31:58.678790 2018] [authz_core:error] [pid 3320:tid 1948] [client 127.0.0.1:1070] AH01630: client denied by server configuration: D:/php/casting/public, referer: http://local.casting.com/
+127.0.0.1 - - [24/May/2018:23:31:58 -0400] "GET /favicon.ico HTTP/1.1" 403 1049 "http://local.casting.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Sun Jul 22 20:20:21.830120 2018] [authz_core:error] [pid 12372:tid 1948] [client 127.0.0.1:9487] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [22/Jul/2018:20:20:21 -0400] "POST /oauth/token HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+[Sat Sep 29 23:22:07.689484 2018] [authz_core:error] [pid 7272:tid 1968] [client 127.0.0.1:1534] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [29/Sep/2018:23:22:07 -0400] "OPTIONS /api/login HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
