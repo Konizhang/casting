@@ -1,0 +1,54 @@
+
+<app-page-header></app-page-header>
+<div class="py-5"  id="loginpage">
+  <div class="row">
+    
+d 
+
+  </div>
+</div>
+<div class="py-5 mycontent">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="/assets/img/splash.png" id="icon" alt="User Icon" />
+          
+          </div>
+      
+          <!-- Login Form -->
+          <form>
+            <input type="text" id="username" class="fadeIn second" name="email" placeholder="username"  [(ngModel)]="loginUserData.username">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="loginUserData.password">
+            <input type="submit" class="fadeIn fourth" value="Log In" (click)="loginUser()" >
+          </form>
+          <div class="social-links">
+              <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <!-- <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> -->
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> -->
+            </div>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+             <div class="col-md-6 float-left">
+                  <a routerLink="/forgetpassword"  class="underlineHover">  
+                    FORGOT YOUR PASSWORD?</a>
+            </div>
+            <div class="col-md-6 float-right">
+                <a routerLink="/signup"  class="underlineHover">CREATE AN ACCOUNT</a>
+          </div>
+          </div>
+      
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

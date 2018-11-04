@@ -14,3 +14,13 @@
 127.0.0.1 - - [22/Jul/2018:20:20:21 -0400] "POST /oauth/token HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
 [Sat Sep 29 23:22:07.689484 2018] [authz_core:error] [pid 7272:tid 1968] [client 127.0.0.1:1534] AH01630: client denied by server configuration: D:/php/casting/public
 127.0.0.1 - - [29/Sep/2018:23:22:07 -0400] "OPTIONS /api/login HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Wed Oct 17 22:49:59.751873 2018] [authz_core:error] [pid 14744:tid 1936] [client 127.0.0.1:3797] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [17/Oct/2018:22:49:59 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Wed Oct 17 23:05:04.589091 2018] [authz_core:error] [pid 14744:tid 1936] [client 127.0.0.1:7120] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [17/Oct/2018:23:05:04 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Wed Oct 17 23:15:24.456490 2018] [authz_core:error] [pid 14744:tid 1936] [client 127.0.0.1:9444] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [17/Oct/2018:23:15:24 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Wed Oct 17 23:16:59.505835 2018] [authz_core:error] [pid 14744:tid 1936] [client 127.0.0.1:9832] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [17/Oct/2018:23:16:59 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Wed Oct 17 23:17:07.827381 2018] [authz_core:error] [pid 14744:tid 1928] [client 127.0.0.1:9885] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [17/Oct/2018:23:17:07 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0"

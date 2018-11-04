@@ -18,7 +18,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
-Route::middleware('auth:api')->get('/item', 'ItemController@index');
+Route::middleware('auth:api')->get('/items', 'ItemController@index');
+
+
+//item 
+Route::post('items', 'ItemController@store');
+Route::get('items/{id}', 'ItemController@show');
+Route::get('items', 'ItemController@index');
+Route::delete('items/{id}', 'ItemController@delete');
+Route::put('items/{item}', 'ItemController@update');
+
+
+
+Route::get('/categories', 'ConstantsController@categories');
+Route::get('/brands', 'ConstantsController@brands');
 
 Route::post('/login', 'AuthController@login');
 Route::post('/signup', 'AuthController@register');

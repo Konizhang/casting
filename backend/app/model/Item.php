@@ -15,5 +15,5 @@ class Item  extends Base
     //     'name', 'email', 'password',
     // ];
 
-   
+    protected $guarded = array();
 }

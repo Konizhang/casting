@@ -1,0 +1,79 @@
+<h2 mat-dialog-title>Add new item</h2>
+<mat-dialog-content>
+  <!-- <img [src]="imageUrl" height="200"> <br/> 
+    <input  hidden type="file" #fileInput  name ="image" (change)="onSelectFile($event)"> -->
+ 
+    <input type="file" (change)="fileChangeEvent($event)" />
+
+    <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1 / 1"
+        [resizeToWidth]="500"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+
+    <img [src]="croppedImage"/>
+
+  <div class="example-container">
+
+    <!-- <mat-form-field>
+      <mat-select placeholder="Image" >
+        <mat-select-trigger>
+          <mat-icon svgIcon="home"></mat-icon> 
+        </mat-select-trigger>
+   
+      </mat-select>
+    </mat-form-field> -->
+  
+   
+
+    <mat-form-field>
+      <input matInput placeholder="Name"  name ="name" [(ngModel)]="item.name" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" name="description" [(ngModel)]="item.description" ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Category"  name="category_id"  [(ngModel)]="item.category_id">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Brand" name="brand_id"  [(ngModel)]="item.brand_id">
+        <mat-option *ngFor="let brand of brands" [value]="brand.id">
+          {{brand.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="weight" name="weight" [(ngModel)]="item.weight" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="material" name="material"  [(ngModel)]="item.material" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+</div>
+
+</mat-dialog-content>
+
+ <mat-dialog-actions>
+  <button mat-button color="primary" (click)="save()">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>

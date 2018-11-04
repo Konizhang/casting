@@ -1,0 +1,195 @@
+{
+  "categories": [
+    {
+        "id": 1,
+        "name": "CONE CRUSHER PARTS",
+        "description": null,
+        "order": 100
+    },
+    {
+        "id": 2,
+        "name": "JAW CRUSHER PARTS",
+        "description": null,
+        "order": 200
+    },
+    {
+        "id": 3,
+        "name": "IMPACTOR PARTS",
+        "description": null,
+        "order": 300
+    },
+    {
+        "id": 4,
+        "name": "BUCKET TEETH ",
+        "description": null,
+        "order": 400
+    },
+    {
+        "id": 5,
+        "name": "WEAR BLOCKS",
+        "description": null,
+        "order": 500
+    },
+    {
+        "id": 6,
+        "name": "GRINDING BALLS",
+        "description": null,
+        "order": 600
+    },
+    {
+        "id": 7,
+        "name": "CRUSHER BACKING",
+        "description": null,
+        "order": 700
+    },
+    {
+        "id": 8,
+        "name": "CARBIDE INSERT",
+        "description": null,
+        "order": 800
+    },
+    {
+        "id": 9,
+        "name": "CERAMIC INSERT",
+        "description": null,
+        "order": 900
+    }
+],
+  "brands": [
+    {
+        "id": 1,
+        "name": "Symons",
+        "description": null,
+        "order": 100
+    },
+    {
+        "id": 2,
+        "name": "Metso",
+        "description": null,
+        "order": 200
+    },
+    {
+        "id": 3,
+        "name": "Cedarapids",
+        "description": null,
+        "order": 300
+    },
+    {
+        "id": 4,
+        "name": "El-Jay",
+        "description": null,
+        "order": 400
+    },
+    {
+        "id": 5,
+        "name": "Telsmith ",
+        "description": null,
+        "order": 500
+    },
+    {
+        "id": 6,
+        "name": "Pegson",
+        "description": null,
+        "order": 600
+    },
+    {
+        "id": 7,
+        "name": "Pioneer",
+        "description": null,
+        "order": 700
+    },
+    {
+        "id": 8,
+        "name": "Kodiak",
+        "description": null,
+        "order": 800
+    },
+    {
+        "id": 9,
+        "name": "Allis Chalmers/Svedala",
+        "description": null,
+        "order": 900
+    },
+    {
+        "id": 10,
+        "name": "Clemro",
+        "description": null,
+        "order": 1000
+    },
+    {
+        "id": 11,
+        "name": "JCI",
+        "description": null,
+        "order": 1100
+    },
+    {
+        "id": 12,
+        "name": "Kue-Ken",
+        "description": null,
+        "order": 1200
+    },
+    {
+        "id": 13,
+        "name": "Minyu",
+        "description": null,
+        "order": 1300
+    },
+    {
+        "id": 14,
+        "name": "Parker",
+        "description": null,
+        "order": 1400
+    },
+    {
+        "id": 15,
+        "name": "Nordberg",
+        "description": null,
+        "order": 1500
+    },
+    {
+        "id": 16,
+        "name": "Traylor",
+        "description": null,
+        "order": 1600
+    },
+    {
+        "id": 17,
+        "name": "McCloskey",
+        "description": null,
+        "order": 1700
+    },
+    {
+        "id": 18,
+        "name": "TRIO",
+        "description": null,
+        "order": 1800
+    },
+    {
+        "id": 19,
+        "name": "RAPTOR",
+        "description": null,
+        "order": 1900
+    },
+    {
+        "id": 20,
+        "name": "TEREX",
+        "description": null,
+        "order": 2000
+    },
+    {
+        "id": 21,
+        "name": "KLEEMANN ",
+        "description": null,
+        "order": 2100
+    },
+    {
+        "id": 22,
+        "name": "OMINICONE",
+        "description": null,
+        "order": 2200
+    }
+],
+  "profile": {
+    "name": "typicode"
+  }
+}

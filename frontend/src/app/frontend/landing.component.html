@@ -1,0 +1,449 @@
+<header id="header">
+  
+  <div class="container">
+
+    <div id="logo" class="pull-left">
+      <a href="#hero"><img src="assets/img/logo.png" alt="" title="" /></a>
+      <!-- Uncomment below if you prefer to use a text logo -->
+      <!--<h1><a href="#hero">Regna</a></h1>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li [routerLinkActive]="['menu-active']"><a routerLink="/home">Home</a></li>
+        <li [routerLinkActive]="['menu-active']"><a routerLink="/news">News</a></li>
+        <li [routerLinkActive]="['menu-active']"><a routerLink="/items">Products</a></li>
+        <!-- <li [routerLinkActive]="['menu-active']"><a routerLink="/signup">Signup</a></li> -->
+        <li [routerLinkActive]="['menu-active']"><a routerLink="/login">Login</a></li>
+        <li [routerLinkActive]="['menu-active']"><a routerLink="/contact" >Contact Us</a></li>
+      
+      
+       </ul>
+    </nav><!-- #nav-menu-container -->
+  </div>
+</header><!-- #header -->
+
+<!--==========================
+Hero Section
+============================-->
+<section id="hero">
+<div class="hero-container">
+  <h1>Welcome to MnSiC</h1>
+  <h2>We provide premuim wear parts and crusher parts international solution</h2>
+  <a routerLink="/home"  fragment="services" class="btn-get-started">Get Started</a>
+</div>
+</section><!-- #hero -->
+
+<main id="main">
+
+<!--==========================
+  About Us Section
+============================-->
+<section id="about">
+  <div class="container">
+    <div class="row about-container">
+
+      <div class="col-lg-6 content order-lg-1 order-2">
+        <h2 class="title">Few Words About Us</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+
+        <div class="icon-box wow fadeInUp">
+          <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+          <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+          <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+        </div>
+
+        <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+          <div class="icon"><i class="fa fa-photo"></i></div>
+          <h4 class="title"><a href="">Magni Dolores</a></h4>
+          <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        </div>
+
+        <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+          <div class="icon"><i class="fa fa-bar-chart"></i></div>
+          <h4 class="title"><a href="">Dolor Sitema</a></h4>
+          <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+    </div>
+
+  </div>
+</section><!-- #about -->
+
+<!--==========================
+  Facts Section
+============================-->
+<section id="facts">
+  <div class="container wow fadeIn">
+    <div class="section-header">
+      <h3 class="section-title">Facts</h3>
+      <p class="section-description">We always make it better and let you pay less for high quality  </p>
+    </div>
+    <div class="row counters">
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up">232</span>
+        <p>Customer</p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up">86</span>
+        <p>country</p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up">11,463</span>
+        <p>Product</p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up">400</span>
+        <p>employee</p>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- #facts -->
+
+<!--==========================
+  Services Section
+============================-->
+<section id="services">
+  <div class="container wow fadeIn">
+    <div class="section-header">
+      <h3 class="section-title">Services</h3>
+      <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="box">
+          <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
+          <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+          <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="box">
+          <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
+          <h4 class="title"><a href="">Dolor Sitema</a></h4>
+          <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+        <div class="box">
+          <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
+          <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+          <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="box">
+          <div class="icon"><a href=""><i class="fa fa-photo"></i></a></div>
+          <h4 class="title"><a href="">Magni Dolores</a></h4>
+          <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="box">
+          <div class="icon"><a href=""><i class="fa fa-road"></i></a></div>
+          <h4 class="title"><a href="">Nemo Enim</a></h4>
+          <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+        <div class="box">
+          <div class="icon"><a href=""><i class="fa fa-shopping-bag"></i></a></div>
+          <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+          <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- #services -->
+
+<!--==========================
+Call To Action Section
+============================-->
+<section id="call-to-action">
+  <div class="container wow fadeIn">
+    <div class="row">
+      <div class="col-lg-9 text-center text-lg-left">
+        <h3 class="cta-title">Call To Action</h3>
+        <p class="cta-text"> Contact us now to solve all you problem in use, design, shipment.</p>
+      </div>
+      <div class="col-lg-3 cta-btn-container text-center">
+        <a class="cta-btn align-middle" routerLink="/signup">Call To Action</a>
+      </div>
+    </div>
+
+  </div>
+</section><!-- #call-to-action -->
+
+<!--==========================
+  Portfolio Section
+============================-->
+<section id="portfolio">
+  <div class="container wow fadeInUp">
+    <div class="section-header">
+      <h3 class="section-title">Exhibition</h3>
+      <p class="section-description">We provide and customize all kind of the wear parts to satify your need</p>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+        <ul id="portfolio-flters">
+          <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
+          <li data-filter=".filter-app">CONE CRUSHER PARTS</li>
+          <li data-filter=".filter-card">JAW CRUSHER PARTS</li>
+          <li data-filter=".filter-logo">IMPACTOR PARTS</li>
+          <li data-filter=".filter-web">BUCKET TEETH</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row" id="portfolio-wrapper">
+      <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+      
+          <img src="assets/img/portfolio/a1.png" alt="">
+          <div class="details">
+            <h4>CONE 1</h4>
+            <span>CONE CRUSHER PARTS 1</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+        
+          <img src="assets/img/portfolio/a2.png" alt="">
+          <div class="details">
+            <h4>CONE 2</h4>
+            <span>CONE CRUSHER PARTS 2</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+       
+          <img src="assets/img/portfolio/a3.png" alt="">
+          <div class="details">
+            <h4>CONE 3</h4>
+            <span>CONE CRUSHER PARTS 3</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+       
+          <img src="assets/img/portfolio/b1.png" alt="">
+          <div class="details">
+            <h4>JAW 1</h4>
+            <span>JAW CRUSHER PARTS 1</span>
+          </div>
+        
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+       
+          <img src="assets/img/portfolio/b2.png" alt="">
+          <div class="details">
+            <h4>JAW 2</h4>
+            <span>JAW CRUSHER PARTS 2</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+     
+          <img src="assets/img/portfolio/b3.png" alt="">
+          <div class="details">
+            <h4>JAW 3</h4>
+            <span>JAW CRUSHER PARTS 3</span>
+          </div>
+       </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-card">
+       
+          <img src="assets/img/portfolio/b4.png" alt="">
+          <div class="details">
+            <h4>JAW 4</h4>
+            <span>JAW CRUSHER PARTS 4</span>
+          </div>
+       
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+        
+          <img src="assets/img/portfolio/c1.png" alt="">
+          <div class="details">
+            <h4>IMPACTOR 1</h4>
+            <span>IMPACTOR PARTS 1</span>
+          </div>
+        
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+    
+          <img src="assets/img/portfolio/c2.png" alt="">
+          <div class="details">
+            <h4>IMPACTOR 2</h4>
+            <span>IMPACTOR PARTS 2</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
+       
+          <img src="assets/img/portfolio/c3.png" alt="">
+          <div class="details">
+            <h4>IMPACTOR 3</h4>
+            <span>IMPACTOR PARTS 3</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+
+          <img src="assets/img/portfolio/d1.png" alt="">
+          <div class="details">
+            <h4>TEETH 1</h4>
+            <span>BUCKET TEETH 1</span>
+          </div>
+        
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+       
+          <img src="assets/img/portfolio/d2.png" alt="">
+          <div class="details">
+            <h4>TEETH 2</h4>
+            <span>BUCKET TEETH 2</span>
+          </div>
+       
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+      
+          <img src="assets/img/portfolio/d3.png" alt="">
+          <div class="details">
+            <h4>TEETH 3</h4>
+            <span>BUCKET TEETH 3</span>
+          </div>
+        
+      </div>
+
+      <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+        
+          <img src="assets/img/portfolio/d4.png" alt="">
+          <div class="details">
+            <h4>TEETH 4</h4>
+            <span>BUCKET TEETH 4</span>
+          </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- #portfolio -->
+
+<!--==========================
+  Team Section
+============================-->
+<section id="team">
+  <div class="container wow fadeInUp">
+    <div class="section-header">
+      <h3 class="section-title">Branch</h3>
+      <p class="section-description">We have branch in all over the world to make it easy for Clients </p>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="assets/img/t1.png" alt=""></div>
+          <h4 class="primarycolor">CHINA</h4>
+          <span class="primarycolor">Branch in Guangzhou</span>
+          <div class="social">
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-google-plus"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="assets/img/t2.png" alt=""></div>
+          <h4 class="primarycolor">ENGLAND</h4>
+          <span class="primarycolor">Branch in London</span>
+          <div class="social">
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-google-plus"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="assets/img/t3.png" alt=""></div>
+          <h4 class="primarycolor">CANADA</h4>
+          <span class="primarycolor">Branch in Toronto</span>
+          <div class="social">
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-google-plus"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="assets/img/t4.png" alt=""></div>
+          <h4 class="primarycolor">AUSTRALIA</h4>
+          <span class="primarycolor">Branch in sydney</span>
+          <div class="social">
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-google-plus"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- #team -->
+
+
+</main>
+
+<!--==========================
+Footer
+============================-->
+<footer id="footer">
+<div class="footer-top">
+  <div class="container">
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="copyright">
+    &copy; Copyright <strong>MnSiC.com</strong>. All Rights Reserved
+  </div>
+ 
+</div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

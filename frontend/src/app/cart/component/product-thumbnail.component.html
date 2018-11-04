@@ -1,0 +1,26 @@
+<div class="wrapper" >
+  <div class="info" >
+    <div class="img-wrapper">
+      <img class="img" [src]='item.image'>
+      <div class="img-placeholder"></div>
+    </div>
+    <h5 class="title">{{item.name}}</h5>
+    <p class="price"><span>{{item.description}}</span></p>
+    <div class="details">
+     
+        <hr>
+        <div class="row">
+          <div class="col-8-sm view-details-wrapper">
+            <a  class="view" [routerLink]="['/shop/product']">View details</a>
+          </div>
+          <div class="col-4-sm add-cart-wrapper">
+            <button type="button" class="cart" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" /></button>
+          </div>
+        </div>
+    
+     
+    </div>
+
+  </div>
+
+</div>

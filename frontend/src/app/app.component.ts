@@ -10,10 +10,14 @@ export class AppComponent {
   title = 'app';
   id : number ;
 
+  myclass : String;
+
   constructor(private activatedRoute : ActivatedRoute){  }
   ngOnInit() {
+
+    this.myclass ="fixed-top";
     this.activatedRoute.url.subscribe(url =>{
-      console.log(url);
+     // console.log(url);
    });
   
   }

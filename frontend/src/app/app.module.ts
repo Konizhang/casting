@@ -1,42 +1,43 @@
 import { AuthService } from './service/auth.service';
-import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app.routing';
 import { AdminModule } from './admin/admin.module';
 import { FrontendModule } from './frontend/frontend.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { LandingComponent } from './landing/landing.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthGuard } from './service/auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorService } from './service/token-interceptor.service';
-import { NewsComponent } from './news/news.component';
-import { ItemsComponent } from './items/items.component';
+
+import { ItemService } from './service/item.service';
+import { CartEntryComponent } from './cart/cart-entry.component';
+import { ShopModule } from './cart/shop.module';
+import { DataService } from './service/data.service';
+import { CartService } from './service/cart.service';
+import { HttpModule } from '@angular/http';
+import { ProductlistComponent } from './cart/component/productlist.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
-    SignupComponent,
-    LoginComponent,
-    NewsComponent,
-    ItemsComponent
-  ],
+   
+  
+   ],
   imports: [
+    ShopModule,
     BrowserModule,
     FrontendModule,
     AdminModule,
     AppRoutingModule,
-    FormsModule ,
-    HttpClientModule 
-    
+    BrowserAnimationsModule,
+    HttpModule 
   ],
-  providers: [AuthService, AuthGuard, 
+  providers: [ItemService,AuthService, AuthGuard,DataService, CartService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

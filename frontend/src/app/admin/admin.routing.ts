@@ -1,31 +1,39 @@
-import { AddItemComponent } from './add-item/add-item.component';
-import { Routes, RouterModule } from '@angular/router';
+import { AllitemComponent } from './item/allitem.component';
+import { AdditemComponent } from './item/additem.component';
+import { AuthGuard } from '../service/auth.guard';
+
+
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin.component';
+import { AdminHomeComponent } from './adminhome/adminhome.component';
+import { MainContentComponent } from 'src/app/admin/main-content/main-content.component';
+import { DashboardComponent } from 'src/app/admin/dashboard/dashboard.component';
+
 
 const adminRoutes: Routes = [
+  {
+    path: 'admin', component: AdminComponent,
+    children: [
+      { path: '', component: AdminHomeComponent } ,
+      { path: 'additem', component:  AdditemComponent},
+      { path: 'main', component: MainContentComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'allitem', component: AllitemComponent }
+    
+    ]
+  }
 
-   {    path: 'additem',    component: AddItemComponent  },
-  // {    path: 'about',      component: AboutComponent  },
-  // {    path: 'login',      component: LoginComponent  },
-  // {    path: 'signup',     component: SignupComponent  },
-  // {    path: 'service',    component: ServiceComponent , canActivate: [GuardService] },
-  // {    path: 'messages',    component: MessageComponent , canActivate: [GuardService] ,
-  //     children: [
-  //     { path: 'inbox', component: InboxComponent },
-  //     //{ path: '', redirectTo: '/messages',  component: MessageComponent  , canActivate: [GuardService] }, 
-  //   ]
-  // }
 
- // {    path: '',  redirectTo: '/landing',  pathMatch: 'full'  },
 ];
 
 @NgModule({
-    imports: [
-      RouterModule.forChild(adminRoutes)
-    ],
-    exports: [RouterModule],
-    providers: [
-      
-    ]
-  })
-  export class AdminRoutingModule {}
+  imports: [RouterModule.forChild(adminRoutes)],
+  exports: [RouterModule]
+  
+})
+export class AdminRoutingModule {
+
+}
+
+

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Item;
+use Illuminate\Support\Facades\Storage;
+use Validator;
 
 class ItemController extends Controller
 {
@@ -24,7 +26,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +37,25 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+        $itemname  = time();
+        $file_name =  "item-". $itemname.".png";
+        $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request['image']));
+    
+        file_put_contents(public_path().'/images/items/' . $file_name,$data );
+
+        $input = $request->all();
+        
+        $input["image"] =  $itemname;
+
+        $item = Item::create($input);
+        return response()->json($item, 201);
     }
 
     /**
@@ -46,7 +66,8 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Item::findOrFail($id);
+        return response()->json( $item, 200);
     }
 
     /**
@@ -67,9 +88,10 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Item $item)
     {
-        //
+        $item->update($request->all());
+        return response()->json($item, 200);
     }
 
     /**
@@ -82,4 +104,19 @@ class ItemController extends Controller
     {
         //
     }
+
+    public function delete($id)
+    {
+
+        $item = Item::findOrFail($id);
+        $file = public_path().'/images/items/item-'.$item->image.'.png';
+        $flag = file_exists($file);
+        if( $flag ){
+           unlink($file);
+        }
+        $item->delete();
+        return response()->json(null, 204);
+    }
+
+
 }
