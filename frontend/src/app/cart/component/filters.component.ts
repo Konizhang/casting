@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Category } from './category.model'
+import { Category } from '../../model/category';
+
 
 @Component({
   selector: 'filters',
@@ -19,6 +20,9 @@ export class FiltersComponent implements OnInit {
 
   @Output()
   onFilterChange = new EventEmitter<any>()
+
+  @Output()
+  onCategoryChange = new EventEmitter<any>()
 
 
   showFilters: boolean = true
@@ -48,4 +52,13 @@ export class FiltersComponent implements OnInit {
       change: change
     })
   }
+
+
+  filtercateogry(id){
+    console.log(id);
+    this.onCategoryChange.emit({
+      id: id
+    })
+  }
+
 }

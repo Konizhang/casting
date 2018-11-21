@@ -1,5 +1,6 @@
+import { Category } from './../../model/category';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Category } from '../../model/category';
+
 import { Item } from '../../model/item';
 import { FiltersComponent } from './filters.component';
 import { SearchBarComponent } from './search-bar.component';
@@ -16,11 +17,15 @@ import { ItemService } from '../../service/item.service';
 export class ProductlistComponent implements OnInit {
 
   categories : Category[];
-  items: Item[]
+  
+  items: Item[];
 
   mainFilter: any
 
-  currentSorting: string
+  private pages:Array<number>;
+  private page:number;
+  private id:number;
+  currentSorting: string;
 
   @ViewChild('filtersComponent')
   filtersComponent: FiltersComponent;
@@ -57,13 +62,10 @@ export class ProductlistComponent implements OnInit {
 
     this.constantsService.getCategories().subscribe(categories => {
       this.categories = categories;
-     
-   });
+    });
 
 
     this.dataService.getData().then(data => {
-
-     
       this.originalData = data
       this.mainFilter = {
         search: '',
@@ -74,31 +76,45 @@ export class ProductlistComponent implements OnInit {
 
   
       //Make a deep copy of the original data to keep it immutable
-     this.itemService.getItems().subscribe(items => {
-      this.items = items;
-      });;
-      this.sortProducts('name')
+     this.itemService.getItemsby(1,'category',1).subscribe(data => {
+     
+      this.items = data.data;
+      this.id =1;
+      this.pages = new Array(data.last_page);
+      });
+     // this.sortProducts('name')
     })
   }
 
-  onURLChange(url){
-    this.dataService.getRemoteData(url).subscribe(data => {
-      this.originalData = data
-      this.mainFilter = {
-        search: '',
-        categories: this.originalData.categories.slice(0),
-        customFilter: this.customFilters[0],
-        priceFilter: this.priceFilters[0]
-      }
-
-      //Make a deep copy of the original data to keep it immutable
-      this.items = this.originalData.products.slice(0)
-      this.sortProducts('name')
-      this.filtersComponent.reset(this.customFilters, this.priceFilters)
-      this.searchComponent.reset()
-      this.cartService.flushCart()
-    })
+  setPages(i,event:any){
+    event.preventDefault();
+    console.log("i",i);
+    this.page = i;
+    console.log("id", this.items[1].category_id);
+    this.getitems(  this.items[1].category_id,i+1);
+    
   }
+
+  getitems(id,i){
+    console.log("keyuword",i);
+    this.itemService.getItemsby(id,'category',i).subscribe(data => {
+
+      console.log(data.data)
+      this.id =id;
+      this.items = data.data;
+      this.pages = new Array(data.last_page);
+     });
+  }
+
+  onCategoryChange(obj){
+    this.itemService.getItemsby(obj['id'],'category',1).subscribe(data => {
+      this.items = data.data;
+      this.pages = new Array(data.last_page);
+   });
+
+    
+  }
+
 
 
 
@@ -111,6 +127,7 @@ export class ProductlistComponent implements OnInit {
   }
 
   onFilterChange(data){
+     console.log("ibfu"+data);
     if(data.type == 'category'){
       if(data.isChecked){
         this.mainFilter.categories.push(data.filter)
@@ -149,8 +166,9 @@ export class ProductlistComponent implements OnInit {
       //Filter by categories
       if(filterAllData || filter.type=='category'){
         let passCategoryFilter = false
-        product.categories.forEach(product_category => {
+        this.categories.forEach(product_category => {
           if(!passCategoryFilter){
+            console.log(" this.mainFilter.categories", this.mainFilter.categories);
             passCategoryFilter = this.mainFilter.categories.reduce((found, category) => {
                 return found || product_category == category.categori_id
             }, false)
@@ -210,6 +228,10 @@ export class ProductlistComponent implements OnInit {
       this.sortProducts(this.currentSorting)
     }
   }
+
+
+
+
 
   sortProducts(criteria){
     //console.log('sorting ' + this.products.length + ' products')

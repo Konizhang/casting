@@ -9,11 +9,14 @@
    }
    
    .tpicon{
-      width: 65px;
+      width: 120px;
        margin-right: 10px;
    }
    
-   
+   .tpsloagn{
+     width:15%;
+   }
+ 
    #splash_slogan{
        margin-top: 20px;
        margin-left: 150px;

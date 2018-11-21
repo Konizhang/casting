@@ -66,4 +66,10 @@ export class CartComponent implements OnInit {
     this.expanded = !this.expanded
   }
 
+  onquota(){
+
+    //send your action to backend send a quote
+    this.cartService.flushCart();
+  }
+
 }

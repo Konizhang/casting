@@ -24,8 +24,8 @@ export class SidenavComponent implements OnInit {
     zone: NgZone, 
   //  private userService: UserService,
     private router: Router) {
-    this.mediaMatcher.addListener(mql =>
-      zone.run(() => this.mediaMatcher = mql));
+    // this.mediaMatcher.addListener(mql =>
+    //   zone.run(() => this.mediaMatcher = mql));
   }
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;

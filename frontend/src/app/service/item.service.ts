@@ -69,4 +69,14 @@ export class ItemService extends BaseService{
   addItem(item:Item){
     return  this.http.post<Item>(this.base_url+'/'+this.endpoint,item);
   }
+
+  getItemsby($id,$type,$page){ 
+    this.url = this.base_url+'/itemsBy/'+$type+'/'+$id+'?page='+$page;
+    console.log( this.url);
+    return  this.http.get<any>(this.url)
+  //  .pipe(
+  //    map(res => res.data) // or any other operator
+  //  );
+   }
+
 }

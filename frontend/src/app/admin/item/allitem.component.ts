@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 
 import { NewContactDialogComponent } from '../new-contact-dialog/new-contact-dialog.component';
 import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
@@ -12,6 +13,7 @@ import { DialogService } from '../../service/dialog.service';
 import { ConstantsService } from '../../service/constants.service';
 import { Category } from '../../model/category';
 import { Brand } from '../../model/brand';
+import { forkJoin, Observable } from 'rxjs';
 
 
 @Component({
@@ -26,6 +28,8 @@ export class AllitemComponent implements OnInit {
   items : Item[] ;
   displayedColumns = ['name', 'description', 'partnumber','category', 'brand', 'weight', 'material','actions'];
   dataSource: MatTableDataSource<Item>;
+  post1: any;
+  post2: any;
 
   constructor(private snackBar: MatSnackBar,private dialog: MatDialog, private itemService : ItemService, private constantsService :ConstantsService,
     private dialogn: MatDialog,
@@ -42,34 +46,61 @@ export class AllitemComponent implements OnInit {
 
   ngOnInit() {
 
-    this.constantsService.getCategories().subscribe(categories => {
-      this.categories = categories;
-   });
+   let categories =   this.constantsService.getCategories();
+   let brands  =  this.constantsService.getBrands();
 
-   this.constantsService.getBrands().subscribe(brands => {
-     this.brands = brands;
-   }); 
-    
-   this.itemService.getItems().subscribe(items => {
-   // 
-    let itemarray = items.map(item => {
+    forkJoin([categories, brands]).subscribe(result=>{
+      this.categories = result[0];
+      this.brands = result[1];
+      this.itemService.getItems().subscribe(items => {
+        // 
+         let itemarray = items.map(item => {
+           
+           let brand = this.constantsService.getObjectName( this.brands,item['brand_id']);
+           let category = this.constantsService.getObjectName( this.categories,item['category_id']);
+           return {
+             id: item.id,
+             brand,
+             category,
+             ...item
+           };
+           },
+         ); 
+         this.items = itemarray;
+         this.dataSource = new MatTableDataSource<Item>(itemarray);
+         this.dataSource.paginator = this.paginator;
+         this.dataSource.sort = this.sort;
+        });
+    })
+  //   .mergeMap(result => {
+  //     this.categories = result[0];
+  //     this.brands = result[1];
+  //     return  this.itemService.getItems().subscribe(items =>
+     
+  //       {
+  //         let itemarray = items.map(item => {
       
-      let brand = this.constantsService.getObjectName( this.brands,item['brand_id']);
-      let category = this.constantsService.getObjectName( this.categories,item['category_id']);
-      return {
-        id: item.id,
-        brand,
-        category,
-        ...item
-      };
-      },
-    ); 
-    this.items = itemarray;
+  //           let brand = this.constantsService.getObjectName( this.brands,item['brand_id']);
+  //           let category = this.constantsService.getObjectName( this.categories,item['category_id']);
+  //           return {
+  //             id: item.id,
+  //             brand,
+  //             category,
+  //             ...item
+  //           };
+  //           },
+  //         ); 
 
-    this.dataSource = new MatTableDataSource<Item>(itemarray);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-   });
+  //        }   
+  //     )
+  //   })
+  //   .subscribe(items=>this.items = items);
+
+
+
+
+
+
    
   }
 

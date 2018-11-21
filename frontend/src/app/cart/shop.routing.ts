@@ -13,7 +13,7 @@ const shopRoutes: Routes = [
     path: 'shop', component: CartEntryComponent,
     children: [
       { path: 'list', component: ProductlistComponent } ,
-      { path: 'product', component: ProductComponent } ,
+      { path: 'product/:id', component: ProductComponent } ,
     ]
   }
 

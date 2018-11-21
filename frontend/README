@@ -91,3 +91,11 @@ Todo :
 
 1) layout template and landing page .
 2) add itemadd  to  project
+
+
+node_modules/rxjs/internal/Observable.d.ts(15,37): error TS1183: An implementation cannot be declared in ambient contexts.
+FIX: npm install rxjs
+
+www.mnsicwearparts.com
+
+

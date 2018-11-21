@@ -1,7 +1,69 @@
 
 <div id="productdetails">
+  <!-- BEGIN CONTENT -->
+  <div class="col-md-9 col-sm-7">
+    <div class="product-page">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="product-main-image" style="position: relative; overflow: hidden;">
+            <img src="assets/img/model7.jpg" alt="Cool green dress with red bell" class="img-responsive" data-bigimgsrc="assets/img/model7.jpg">
+          <img src="assets/img/model7.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none;"></div>
+          <div class="product-other-images">
+            <a href="assets/img/model3.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/img/model3.jpg"></a>
+            <a href="assets/img/model4.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/img/model4.jpg"></a>
+            <a href="assets/img/model5.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/img/model5.jpg"></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <h1>{{item?.name}}</h1>
+          <div class="price-availability-block clearfix">
+            <div class="price">
+              <strong><span>$</span>47.00</strong>
+              <em>$<span>62.00</span></em>
+            </div>
+            <div class="availability">
+              Availability: <strong>In Stock</strong>
+            </div>
+          </div>
+          <div class="description">
+            <p>{{item?.description}}.</p>
+          </div>
+          <div class="product-page-options">
+       
+            <label class="control-label">Part Number:</label> <p>{{item?.partnumber}}.</p>
+        
+          </div>
+          <div class="product-page-options">
+            <div class="pull-left">
+              <label class="control-label">Material:</label>
+              <p>{{item?.material}}.</p>
+            </div>
+            <div class="pull-left">
+              <label class="control-label">Weight:</label>
+              <p>{{item?.weight}}.</p>
+            </div>
+          </div>
+          <div class="product-page-cart">
+            
+            <button class="btn btn-primary" type="submit">Add to list</button>
+          </div>
+         
+          <ul class="social-icons">
+            <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
+            <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
+            <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
+            <li><a class="evernote" data-original-title="evernote" href="javascript:;"></a></li>
+            <li><a class="tumblr" data-original-title="tumblr" href="javascript:;"></a></li>
+          </ul>
+        </div>
 
-  item details production detials 
+       
+        <div class="sticker sticker-sale"></div>
+      </div>
+    </div>
+  </div>
+
+
 
 </div>
 

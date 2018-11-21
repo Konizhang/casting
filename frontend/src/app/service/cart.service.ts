@@ -18,7 +18,8 @@ export class CartService {
 
   addProductToCart(product){
     let exists = false
-    let parsedPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'))
+    let parsedPrice = 0.1
+    // parseFloat(product.price.replace(/\./g, '').replace(',', '.'))
     this.cartTotal += parsedPrice
     //Search this product on the cart and increment the quantity
     this.items = this.items.map(_product => {

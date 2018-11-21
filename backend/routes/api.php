@@ -28,6 +28,7 @@ Route::get('items', 'ItemController@index');
 Route::delete('items/{id}', 'ItemController@delete');
 Route::put('items/{item}', 'ItemController@update');
 
+Route::get('itemsBy/{type}/{id}', 'ItemController@itemsBy');
 
 
 Route::get('/categories', 'ConstantsController@categories');

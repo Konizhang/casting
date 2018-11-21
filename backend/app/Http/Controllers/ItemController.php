@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\model\Item;
 use Illuminate\Support\Facades\Storage;
 use Validator;
@@ -16,7 +17,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return response()->json(Item::paginate(10), 200);
+        return response()->json(Item::paginate(9), 200);
     }
 
     /**
@@ -117,6 +118,16 @@ class ItemController extends Controller
         $item->delete();
         return response()->json(null, 204);
     }
+
+
+    public function itemsBy(Request $request,$type,$id)
+    {
+   
+         return response()->json( Item::where($type."_id",$id)->paginate(9), 200);
+    }
+
+  
+
 
 
 }

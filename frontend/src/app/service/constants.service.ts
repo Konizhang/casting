@@ -27,8 +27,7 @@ export class ConstantsService   extends BaseService{
    } 
 
    getObjectName($array,$key) {
-    console.log($array);
-    console.log($key);
+
     if ($key == "0")
       return "";
     else{

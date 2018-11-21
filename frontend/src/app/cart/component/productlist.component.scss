@@ -12,7 +12,7 @@
 
 .filters-wrapper{
   position: relative;
-  z-index: 90000;
+  z-index:-1000;
 }
 
 .listcontrol {
@@ -27,7 +27,7 @@ sort-filters{
 cart{
   position: absolute;
   top: -23px;
-  right: -57px;
+  right: 0px;
   z-index: 99999999;
 }
 

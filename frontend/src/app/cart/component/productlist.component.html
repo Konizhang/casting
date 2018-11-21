@@ -3,9 +3,8 @@
     <div class="row">
       <div class="col-3">
         <div class="filters-wrapper">
-        
           <cart></cart>
-          <filters #filtersComponent [categories]='categories' [customFilters]='customFilters' [priceFilters]='priceFilters' (onFilterChange)='onFilterChange($event)'></filters>
+          <filters #filtersComponent [categories]='categories' [customFilters]='customFilters' [priceFilters]='priceFilters' (onFilterChange)='onFilterChange($event)' (onCategoryChange)='onCategoryChange($event)'></filters>
         </div>
       </div>
       <div class="col-9">
@@ -28,6 +27,12 @@
           <div class="col-12">
             <showcase [items]='items'></showcase>
           </div>
+     
+          <ul class="nav nav-pillas">
+              <li class="nav-item" *ngFor="let p of pages;let i=index">
+                  <a class="nav-link" heref="#" (click)=setPages(i,$event)>{{i+1}}</a>  
+              </li>    
+         </ul>
         </div>
       </div>
     </div>

@@ -24,3 +24,33 @@
 127.0.0.1 - - [17/Oct/2018:23:16:59 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
 [Wed Oct 17 23:17:07.827381 2018] [authz_core:error] [pid 14744:tid 1928] [client 127.0.0.1:9885] AH01630: client denied by server configuration: D:/php/casting/public
 127.0.0.1 - - [17/Oct/2018:23:17:07 -0400] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:62.0) Gecko/20100101 Firefox/62.0"
+[Mon Nov 05 17:45:15.823259 2018] [authz_core:error] [pid 10672:tid 1948] [client 127.0.0.1:9853] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:15.825260 2018] [authz_core:error] [pid 10672:tid 1940] [client 127.0.0.1:9856] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:15.826261 2018] [authz_core:error] [pid 10672:tid 1936] [client 127.0.0.1:9857] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:15.826261 2018] [authz_core:error] [pid 10672:tid 1932] [client 127.0.0.1:9858] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:15.826261 2018] [authz_core:error] [pid 10672:tid 1944] [client 127.0.0.1:9855] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [05/Nov/2018:17:45:15 -0500] "OPTIONS /api/categories HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:15 -0500] "OPTIONS /api/brands HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:15 -0500] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:15 -0500] "OPTIONS /api/categories HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:15 -0500] "OPTIONS /api/brands HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Mon Nov 05 17:45:33.312960 2018] [authz_core:error] [pid 10672:tid 1936] [client 127.0.0.1:9918] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:33.312960 2018] [authz_core:error] [pid 10672:tid 1944] [client 127.0.0.1:9917] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:33.312960 2018] [authz_core:error] [pid 10672:tid 1940] [client 127.0.0.1:9919] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [05/Nov/2018:17:45:33 -0500] "OPTIONS /api/brands HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:33 -0500] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:33 -0500] "OPTIONS /api/categories HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Mon Nov 05 17:45:33.323968 2018] [authz_core:error] [pid 10672:tid 1932] [client 127.0.0.1:9921] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [05/Nov/2018:17:45:33 -0500] "OPTIONS /api/brands HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Mon Nov 05 17:45:33.330974 2018] [authz_core:error] [pid 10672:tid 1948] [client 127.0.0.1:9920] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [05/Nov/2018:17:45:33 -0500] "OPTIONS /api/categories HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Mon Nov 05 17:45:40.255805 2018] [authz_core:error] [pid 10672:tid 1940] [client 127.0.0.1:9952] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:40.255805 2018] [authz_core:error] [pid 10672:tid 1944] [client 127.0.0.1:9951] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:40.255805 2018] [authz_core:error] [pid 10672:tid 1948] [client 127.0.0.1:9949] AH01630: client denied by server configuration: D:/php/casting/public
+[Mon Nov 05 17:45:40.256805 2018] [authz_core:error] [pid 10672:tid 1932] [client 127.0.0.1:9950] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [05/Nov/2018:17:45:40 -0500] "OPTIONS /api/items HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:40 -0500] "OPTIONS /api/categories HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:40 -0500] "OPTIONS /api/categories HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+[Mon Nov 05 17:45:40.261310 2018] [authz_core:error] [pid 10672:tid 1936] [client 127.0.0.1:9953] AH01630: client denied by server configuration: D:/php/casting/public
+127.0.0.1 - - [05/Nov/2018:17:45:40 -0500] "OPTIONS /api/brands HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
+127.0.0.1 - - [05/Nov/2018:17:45:40 -0500] "OPTIONS /api/brands HTTP/1.1" 403 1049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36"
