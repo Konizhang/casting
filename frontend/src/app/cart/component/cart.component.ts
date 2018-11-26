@@ -63,7 +63,7 @@ export class CartComponent implements OnInit {
   }
 
   onCartClick(){
-    this.expanded = !this.expanded
+    this.expanded = !this.expanded;
   }
 
   onquota(){

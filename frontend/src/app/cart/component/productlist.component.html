@@ -23,16 +23,18 @@
 
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
+        <div class="row displayarea">
+          <div class="col-12" *ngIf="items?.length; else elseBlock">
             <showcase [items]='items'></showcase>
           </div>
-     
-          <ul class="nav nav-pillas">
+          <ng-template #elseBlock>There is no item in this category</ng-template>
+          <div *ngIf="pages?.length>1" class="footerpagination">
+          <ul class="nav nav-pillas pagination"> 
               <li class="nav-item" *ngFor="let p of pages;let i=index">
-                  <a class="nav-link" heref="#" (click)=setPages(i,$event)>{{i+1}}</a>  
+                  <a class="nav-link" href="#" (click)=setPages(i,$event)>{{i+1}}</a>  
               </li>    
          </ul>
+         </div>
         </div>
       </div>
     </div>

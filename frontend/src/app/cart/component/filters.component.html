@@ -1,16 +1,15 @@
 
 <div class="filters" [class.side-shown]="sideShown">
  
-  <h5>Categories</h5>
-  <form *ngIf = "showFilters">
+  <h5 class="categoryTexting">Categories</h5>
+  
+  <form *ngIf = "showFilters" class="categoryLable">
     <div class="category-filter filter-wrapper" *ngFor = 'let category of categories'>
-      <label class="fake-checkbox">
+      <label >
         <!-- <input type="checkbox" checked (change)='onInputChange($event, filter, "category")'> -->
         <!-- <span class="square"><span class="fill"></span></span> -->
-        <span class="label" (click)='filtercateogry(category.id)' >{{category.name}}</span>
+        <span class="label" (click)="filtercateogry(category.id)" >{{category.name}}</span>
 
-
-        <span></span>
       </label>
     </div>
   </form>

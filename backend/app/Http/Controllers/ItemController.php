@@ -17,7 +17,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return response()->json(Item::paginate(9), 200);
+        return response()->json(Item::paginate(10000), 200);
     }
 
     /**

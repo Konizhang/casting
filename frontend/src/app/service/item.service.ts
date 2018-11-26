@@ -57,7 +57,7 @@ export class ItemService extends BaseService{
   getItems(){ 
    this.url = this.base_url+'/'+this.endpoint;
    return  this.http.get<any>(this.url).pipe(
-    map(res => res.data) // or any other operator
+    map(res => res.data)
   );
   }
 

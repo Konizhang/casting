@@ -91,9 +91,10 @@
 }
 
 h5{
+  line-height: 1.8;
   text-transform: uppercase;
   color: #bababa;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: 600;
   &:after{
     content: "";
@@ -155,4 +156,12 @@ h5{
         transform: translateX(-100%);
       }
     }
+  }
+
+  .categoryLable{
+    margin-top: 1rem;
+  }
+
+  .categoryTexting{
+    margin-bottom: 1rem
   }

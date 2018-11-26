@@ -53,7 +53,7 @@ export class AllitemComponent implements OnInit {
       this.categories = result[0];
       this.brands = result[1];
       this.itemService.getItems().subscribe(items => {
-        // 
+  
          let itemarray = items.map(item => {
            
            let brand = this.constantsService.getObjectName( this.brands,item['brand_id']);

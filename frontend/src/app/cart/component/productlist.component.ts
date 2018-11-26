@@ -21,7 +21,7 @@ export class ProductlistComponent implements OnInit {
   items: Item[];
 
   mainFilter: any
-
+  private category_id:number;
   private pages:Array<number>;
   private page:number;
   private id:number;
@@ -77,7 +77,7 @@ export class ProductlistComponent implements OnInit {
   
       //Make a deep copy of the original data to keep it immutable
      this.itemService.getItemsby(1,'category',1).subscribe(data => {
-     
+      this.category_id =data.data[0].category_id ;
       this.items = data.data;
       this.id =1;
       this.pages = new Array(data.last_page);
@@ -89,9 +89,10 @@ export class ProductlistComponent implements OnInit {
   setPages(i,event:any){
     event.preventDefault();
     console.log("i",i);
+    console.log(event);
     this.page = i;
-    console.log("id", this.items[1].category_id);
-    this.getitems(  this.items[1].category_id,i+1);
+   
+    this.getitems( this.category_id,i+1);
     
   }
 
