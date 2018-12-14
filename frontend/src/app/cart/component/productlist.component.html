@@ -29,9 +29,9 @@
           </div>
           <ng-template #elseBlock>There is no item in this category</ng-template>
           <div *ngIf="pages?.length>1" class="footerpagination">
-          <ul class="nav nav-pillas pagination"> 
-              <li class="nav-item" *ngFor="let p of pages;let i=index">
-                  <a class="nav-link" href="#" (click)=setPages(i,$event)>{{i+1}}</a>  
+          <ul class=" pagination"> 
+              <li class="" *ngFor="let p of pages;let i=index">
+               <a class="current-page" href="#" (click)=setPages(i,$event) [ngClass]="{'pageactive':page==i}">{{i+1}}</a>  
               </li>    
          </ul>
          </div>

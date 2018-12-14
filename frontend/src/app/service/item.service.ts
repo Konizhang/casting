@@ -79,4 +79,9 @@ export class ItemService extends BaseService{
   //  );
    }
 
+
+   updateIteme(id:number,item:Item){ 
+     return  this.http.put<Item>(this.base_url+'/'+this.endpoint+'/'+id,item);
+   }
+
 }

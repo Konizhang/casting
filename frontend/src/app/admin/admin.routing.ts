@@ -9,6 +9,7 @@ import { AdminComponent } from './admin.component';
 import { AdminHomeComponent } from './adminhome/adminhome.component';
 import { MainContentComponent } from 'src/app/admin/main-content/main-content.component';
 import { DashboardComponent } from 'src/app/admin/dashboard/dashboard.component';
+import { EdititemComponent } from './item/edititem.component';
 
 
 const adminRoutes: Routes = [
@@ -17,6 +18,7 @@ const adminRoutes: Routes = [
     children: [
       { path: '', component: AdminHomeComponent } ,
       { path: 'additem', component:  AdditemComponent},
+      { path: 'edititem/:id', component:  EdititemComponent},
       { path: 'main', component: MainContentComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'allitem', component: AllitemComponent }

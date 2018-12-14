@@ -3,7 +3,7 @@
 
 .main-container{
   padding-top: 100px;
-  margin-top: 0rem;
+  margin-top: 1rem;
 }
 
 .listcontainer{
@@ -106,4 +106,25 @@ url-form{
 .footerpagination{
   margin-top: -3rem;
   z-index:9999;
+}
+
+.current-page {
+
+  border: 1px solid #e2e2e2;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.15) inset;
+  
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 1rem
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pageactive{
+  background-color: #e2e2e2;
 }

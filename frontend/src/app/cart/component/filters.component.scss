@@ -28,6 +28,7 @@
 
 .filter-wrapper{
   margin-bottom: 8px;
+
   label{
     cursor: pointer;
     &:hover .label{
@@ -164,4 +165,8 @@ h5{
 
   .categoryTexting{
     margin-bottom: 1rem
+  }
+
+  .categoryimage{
+  width: 15%
   }

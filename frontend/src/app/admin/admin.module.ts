@@ -25,6 +25,8 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
 import { DialogService } from '../service/dialog.service';
 import { NotificationService } from '../service/notification.service';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { EdititemComponent } from './item/edititem.component';
+
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     DashboardComponent,
     AllitemComponent,
     MatConfirmDialogComponent,
+    EdititemComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [RouterModule],

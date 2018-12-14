@@ -38,7 +38,7 @@
   box-shadow: 0 2px 19px rgba(0, 0, 0, 0.32);
   color: white;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .expanded-info{
@@ -102,7 +102,7 @@
     .delete-btn{
       position: absolute;
       right: -28px;
-      top: 10px;
+      top: 7px;
       background: none;
       border: none;
       opacity: 0.6;
@@ -262,3 +262,36 @@
       }
     }
   }
+
+
+.quantity{
+    float: right;
+    width: 32px;
+    margin-left: 10px;
+    height: 18px;
+    margin-top: 3px;
+    font-size: 12PX;
+    border-radius: 6px;
+}
+
+.username,.email{
+  padding-left: 5px;
+  float: right;
+  width: 15rem;;
+  margin-left: 10px;
+  height: 18px;
+  margin-top: 3px;
+  font-size: 12PX;
+  border-radius: 6px;
+}
+
+.redalert{
+  color:red;
+}
+
+.emailrow{
+  margin-top: 5px;
+}
+
+
+  

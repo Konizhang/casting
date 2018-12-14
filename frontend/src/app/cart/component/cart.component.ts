@@ -20,6 +20,8 @@ export class CartComponent implements OnInit {
   expandedHeight: string
   cartTotal: number = 0
 
+  username:string
+  email:string
 
   changeDetectorRef: ChangeDetectorRef
 
@@ -34,7 +36,7 @@ export class CartComponent implements OnInit {
       this.products = data.products
       this.cartTotal = data.cartTotal
       this.numProducts = data.products.reduce((acc, product) => {
-        acc+=product.quantity
+        acc+=1
         return acc
       }, 0)
 

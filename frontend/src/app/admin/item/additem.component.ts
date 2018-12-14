@@ -9,7 +9,7 @@ import { ConstantsService } from './../../service/constants.service';
 
 import { Brand } from '../../model/brand';
 import { ImageCroppedEvent } from 'ngx-image-cropper/src/image-cropper.component';
-
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-additem',
@@ -58,14 +58,13 @@ export class AdditemComponent implements OnInit {
   ngOnInit( ) {
    this.item = new Item();
   
-    this.constantsService.getCategories().subscribe(categories => {
-       this.categories = categories;
-    });
-
-    this.constantsService.getBrands().subscribe(brands => {
-      this.brands = brands;
-    });
- 
+   let categories =   this.constantsService.getCategories();
+   let brands  =  this.constantsService.getBrands();
+   forkJoin([categories, brands]).subscribe(result=>{
+      this.categories = result[0];
+      this.brands = result[1];
+    }); 
+  
   }
 
   save() {

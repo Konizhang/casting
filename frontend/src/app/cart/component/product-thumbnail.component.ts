@@ -10,7 +10,7 @@ import { Item } from 'src/app/model/item';
 })
 export class ProductThumbnailComponent implements OnInit {
   @Input() item: Item;
-
+  image_url : String  = "";
   detailViewActive: boolean
 
   constructor(private cartService: CartService) {
@@ -18,7 +18,12 @@ export class ProductThumbnailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.detailViewActive = false
+    this.detailViewActive = false;
+    if(this.item.image){
+    this.image_url = this.cartService.domain_url+"/images/items/item-"+this.item.image+".png";
+    }else{
+      this.image_url = "../../assets/img/itemicon.png";
+    }
   }
 
   onProductClick(){

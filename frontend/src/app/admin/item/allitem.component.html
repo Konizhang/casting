@@ -38,7 +38,7 @@
       </ng-container>
 
       <ng-container matColumnDef="weight">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> weight </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
         <mat-cell *matCellDef="let item"> {{item.weight }} </mat-cell>
       </ng-container>
 
@@ -50,7 +50,7 @@
       <ng-container matColumnDef="actions">
         <md-header-cell *matHeaderCellDef> Actions </md-header-cell>
         <md-cell *matCellDef="let item" >
-          <button mat-icon-button (click)="onEdit(item)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="onEdit(item.id)"><mat-icon>launch</mat-icon></button>
           <button mat-icon-button color="warn" (click)="onDelete(item.id)"><mat-icon>delete_outline</mat-icon></button>
         </md-cell>
     </ng-container>

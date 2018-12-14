@@ -4,6 +4,8 @@
 }
 
 .example-container > * {
-  width: 100%;
+ float:left;
 }
-  
+image-cropper{
+  float:left;
+}  

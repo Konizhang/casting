@@ -1,7 +1,5 @@
-import { map } from 'rxjs/operators';
 
-import { NewContactDialogComponent } from '../new-contact-dialog/new-contact-dialog.component';
-import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatSnackBar, MatSnackBarRef, SimpleSnackBar, MatTableDataSource, MatPaginator, MatSort, MatDialogConfig } from '@angular/material';
 
 import { Router } from '@angular/router';
@@ -14,6 +12,7 @@ import { ConstantsService } from '../../service/constants.service';
 import { Category } from '../../model/category';
 import { Brand } from '../../model/brand';
 import { forkJoin, Observable } from 'rxjs';
+import { EdititemComponent } from './edititem.component';
 
 
 @Component({
@@ -30,11 +29,12 @@ export class AllitemComponent implements OnInit {
   dataSource: MatTableDataSource<Item>;
   post1: any;
   post2: any;
-
+  existingitem :Item;
   constructor(private snackBar: MatSnackBar,private dialog: MatDialog, private itemService : ItemService, private constantsService :ConstantsService,
     private dialogn: MatDialog,
     private notificationService: NotificationService,
-    private dialogService: DialogService) { 
+    private dialogService: DialogService,
+    private changeDetectorRefs: ChangeDetectorRef) { 
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -95,13 +95,7 @@ export class AllitemComponent implements OnInit {
   //     )
   //   })
   //   .subscribe(items=>this.items = items);
-
-
-
-
-
-
-   
+  
   }
 
 
@@ -134,14 +128,20 @@ export class AllitemComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  onEdit(item){
-  
-    this.itemService.populateForm(item);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-     this.dialog.open(AdditemComponent,dialogConfig);
+  onEdit(id){
+   
+    this.itemService.getItem(id).subscribe(item => {
+     this.existingitem = item;
+      let dialogRef = this.dialog.open(EdititemComponent, {
+        width: '450px',
+        data: {
+          item: this.existingitem,
+          tag:"angular"
+        }
+      });
+      this.refreshTable();
+  });
+
   }
 
   onDelete($key){
@@ -150,7 +150,8 @@ export class AllitemComponent implements OnInit {
     .afterClosed().subscribe(res =>{
       if(res){
         this.itemService.deleteIteme($key).subscribe( resp =>{
-          this.ngOnInit();
+          this.refreshTable();
+          // this.ngOnInit();
           this.notificationService.warn('Deleted successfully');
         }
       );
@@ -159,6 +160,9 @@ export class AllitemComponent implements OnInit {
     });
   }
 
-
+ 
+  private refreshTable() {
+    this.dataSource.paginator = this.paginator;
+}
 
 }

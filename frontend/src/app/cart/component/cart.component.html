@@ -9,15 +9,16 @@
       <div class="product" *ngFor="let item of products">
         <div class="row">
           <div class="col-6-sm description">
-            <p>{{item.quantity}} x {{item.product.name}}</p>
+            <p> {{item.product.name}} <input type=text class="quantity"  [(ngModel)]="item.quantity"/></p>
           </div>
-          <div class="col-6-sm price">
-            <p>{{item.quantity*item.product.parsedPrice | currency:'USD':'symbol':'1.0-0' }}</p>
-          </div>
+            <p></p>
         </div>
         <button class="delete-btn" (click) = 'deleteProduct(item.product)'>x</button>
       </div>
-      <button type="button" class="pay-btn" (click)="onquota()" >Quote your parts {{cartTotal | currency:'USD':'symbol':'1.0-0'}}</button>
+    <div class="emailrow"> <label>Email address <span class="redalert">*</span></label> <input type=text class="email"  [(ngModel)]="email"/></div>
+    <div> <label>Name <span class="redalert">*</span></label><input type=text class="username"  [(ngModel)]="username"/></div>
+
+      <button type="button" class="pay-btn" (click)="onquota()" >Quote your parts </button>
     </div>
     <button type="button" class="close-btn" *ngIf='expanded' (click)="onCartClick()">Close</button>
   </div>

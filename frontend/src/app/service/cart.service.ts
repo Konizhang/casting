@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { Subject } from 'rxjs';
+import { BaseService } from './BaseService';
 
 
 @Injectable()
-export class CartService {
+export class CartService extends BaseService{
 
   items: any[] = []
   cartTotal: number = 0
@@ -14,7 +15,7 @@ export class CartService {
 
   productAdded$ = this.productAddedSource.asObservable()
 
-  constructor() { }
+
 
   addProductToCart(product){
     let exists = false

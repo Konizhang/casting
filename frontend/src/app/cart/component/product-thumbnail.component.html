@@ -1,26 +1,18 @@
-<div class="wrapper" >
-  <div class="info" >
-    <div class="img-wrapper">
-      <img class="img" [src]='item.image'>
-      <div class="img-placeholder"></div>
-    </div>
-    <h5 class="title">{{item.name}}</h5>
-    <p class="price"><span>{{item.description}}</span></p>
-    <div class="details">
-     
-        <hr>
-        <div class="row">
-          <div class="col-8-sm view-details-wrapper">
-            <a  class="view" routerLink="/shop/product/{{item.id}}">View details</a>
-          </div>
-          <div class="col-4-sm add-cart-wrapper">
-            <button type="button" class="cart" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" /></button>
-          </div>
-        </div>
-    
-     
-    </div>
-
+<div class="detail_wrapper" >
+  <div class="detail_info" >
+    <div class="detail_imgwrapper"><img class="img" [src]='image_url' /> </div>
+    <!-- <p class="price"><span>{{item.description}}</span></p> -->
+    <!-- <div class="action">
+       
+    </div> -->
+    <div class="detail_action">   
+      <div class="action_botton">
+        <a  class="view" routerLink="/shop/product/{{item.id}}">View details</a>
+      </div>
+      <div class="action_botton">
+        <button type="button" class="cart cart_button" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" class="image_botton"/></button>
+      </div>
   </div>
-
+  </div>
+  <div class="title">{{item.name}}</div>
 </div>

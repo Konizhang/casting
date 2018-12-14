@@ -33,6 +33,10 @@ export class ProductlistComponent implements OnInit {
   @ViewChild('searchComponent')
   searchComponent: SearchBarComponent;
 
+
+  image_url : String  = "";
+
+
   sortFilters: any[] = [
     { name:'Name (A to Z)', value:'name' },
     { name:'Price (low to high)', value:'priceAsc' },
@@ -59,7 +63,8 @@ export class ProductlistComponent implements OnInit {
   constructor(private dataService: DataService, private cartService: CartService,private constantsService: ConstantsService,private itemService: ItemService){  }
 
   ngOnInit(){
-
+    this.image_url = this.itemService.domain_url+"/images/items";
+    this.page = 0;
     this.constantsService.getCategories().subscribe(categories => {
       this.categories = categories;
     });
@@ -87,20 +92,20 @@ export class ProductlistComponent implements OnInit {
   }
 
   setPages(i,event:any){
+
+    console.log(this.page);
     event.preventDefault();
-    console.log("i",i);
-    console.log(event);
+
     this.page = i;
    
     this.getitems( this.category_id,i+1);
-    
+   
   }
 
   getitems(id,i){
-    console.log("keyuword",i);
+  
     this.itemService.getItemsby(id,'category',i).subscribe(data => {
 
-      console.log(data.data)
       this.id =id;
       this.items = data.data;
       this.pages = new Array(data.last_page);
