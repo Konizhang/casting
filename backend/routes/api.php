@@ -49,5 +49,18 @@ Route::get('/messages', 'MessageController@index');
 Route::post('/quotes', 'QuoteController@store');
 
 
+//email
+Route::get('/sendemail', 'EmailController@send');
+
+
+//customers
+Route::post('customers', 'CustomerController@store');
+Route::get('customers/{id}', 'CustomerController@show');
+Route::get('customers', 'CustomerController@index');
+Route::delete('customers/{id}', 'CustomerController@delete');
+Route::put('customers/{customer}', 'CustomerController@update');
+
+
+
 
 

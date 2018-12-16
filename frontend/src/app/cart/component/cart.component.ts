@@ -1,3 +1,4 @@
+import { Quote } from './../../model/quote';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Subscription } from 'rxjs';
@@ -69,6 +70,14 @@ export class CartComponent implements OnInit {
   }
 
   onquota(){
+    //
+   let  quote = new Quote(this.username,this.email,this.products);
+    
+    console.log(quote);
+
+    this.cartService.submitQuote(quote).subscribe(result => {
+     console.log(result)
+    });
 
     //send your action to backend send a quote
     this.cartService.flushCart();

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 use App\model\Quote;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 use App\model\QuoteItem;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\QuoteMail;
+
 
 class QuoteController extends Controller
 {
@@ -39,9 +43,9 @@ class QuoteController extends Controller
      */
     public function store(Request $request)
     {
-    
         $rules = [
             'email' => 'required|email',
+            'name' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -49,10 +53,41 @@ class QuoteController extends Controller
         }
        
         $input = $request->all();
-        $quote = Quote::create(['email'=> $input['email']]);
 
-        $quoteitem = QuoteItem::create(['quote_id'=>$quote->id,'item_id'=>5,'quantity'=>13]);  
-        return response()->json($quoteitem, 201);
+        $email =  $input['email'];
+        $name  =  $input['name'];
+        $quote = Quote::create(['email'=>$email,'name'=> $name]);
+
+
+        $products  =  $input['products'];
+        $data = [] ;
+
+
+       
+        foreach($products as $product){
+            $arr = [];
+            $arr['quote_id'] = $quote->id;   
+            $arr['item_id'] = $product['product']['id'];   
+            $arr['quantity'] = $product['quantity'];  
+            $arr['created_at'] = Carbon::now();   
+            $arr['updated_at'] = Carbon::now();  
+            $data[] = $arr; 
+            //$data['quantity'] =  $product->quantity; 
+         }
+
+
+
+       // Log::alert($products);
+       $list =   QuoteItem::insert($data);
+
+       $emaildata['email'] =  $email;
+       $emaildata['name'] =  $name;
+       $emaildata['quote_id'] = $quote->id;
+       $emaildata['products'] = $products;
+
+       Mail::to("koni_zhang@hotmail.com")->send(new QuoteMail($emaildata));
+       //  $quoteitem = QuoteItem::create(['quote_id'=>$quote->id,'item_id'=>5,'quantity'=>13]);  
+        return response()->json($list, 201);
     }
 
     /**

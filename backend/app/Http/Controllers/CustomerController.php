@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\model\Message;
+
+use App\model\Customer;
 use Illuminate\Support\Facades\Storage;
 use Validator;
-use App\Mail\SendMail;
-class MessageController extends Controller
+
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return response()->json(Message::paginate(10000), 200);
+        return response()->json(Customer::paginate(10000), 200);
     }
 
     /**
@@ -38,25 +38,18 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-       
         $rules = [
-            'name' => 'required|max:30',
-            'email' => 'required|email',
-            'message' => 'required',
+            'companyname' => 'required|max:255',
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-    
-
-        $message = Message::create($request->all());
 
 
 
-        Mail::to("koni_zhang@hotmail.com")->send(new SendMail($message));
-        
-        return response()->json($message, 201);
+        $customer =  Customer::create( $request->all());
+        return response()->json($customer, 201);
     }
 
     /**
@@ -67,8 +60,8 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        $message = Message::findOrFail($id);
-        return response()->json( $message, 200);
+        $customer = Customer::findOrFail($id);
+        return response()->json( $customer, 200);
     }
 
     /**
@@ -89,14 +82,33 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+    public function update(Request $request,Customer $customer)
+    {
+        $customer->update($request->all());
+        return response()->json($customer, 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 
     public function delete($id)
     {
-        $message = Message::findOrFail($id);
-        $message->delete();
+
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
         return response()->json(null, 204);
     }
+
+
+
 
 
 }

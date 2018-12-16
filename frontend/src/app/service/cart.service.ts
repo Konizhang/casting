@@ -2,18 +2,24 @@ import { Injectable } from '@angular/core';
 
 import { Subject } from 'rxjs';
 import { BaseService } from './BaseService';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class CartService extends BaseService{
 
   items: any[] = []
   cartTotal: number = 0
-
+  endpoint : string = "quotes";
   private productAddedSource = new Subject<any>()
 
 
   productAdded$ = this.productAddedSource.asObservable()
+
+
+  constructor(private http: HttpClient) {
+    super();
+    this.http = http;
+}
 
 
 
@@ -58,5 +64,9 @@ export class CartService extends BaseService{
     this.items = []
     this.cartTotal = 0
     this.productAddedSource.next({ products: this.items, cartTotal: this.cartTotal })
+  }
+
+  submitQuote(quotes){
+     return  this.http.post(this.base_url+'/'+this.endpoint,quotes);
   }
 }
