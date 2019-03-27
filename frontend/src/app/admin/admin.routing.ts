@@ -10,6 +10,9 @@ import { AdminHomeComponent } from './adminhome/adminhome.component';
 import { MainContentComponent } from 'src/app/admin/main-content/main-content.component';
 import { DashboardComponent } from 'src/app/admin/dashboard/dashboard.component';
 import { EdititemComponent } from './item/edititem.component';
+import { AddcustomerComponent } from './customer/addcustomer.component';
+import { AllcustomerComponent } from './customer/allcustomer.component';
+import { EditcustomerComponent } from './customer/editcustomer.component';
 
 
 const adminRoutes: Routes = [
@@ -21,8 +24,11 @@ const adminRoutes: Routes = [
       { path: 'edititem/:id', component:  EdititemComponent},
       { path: 'main', component: MainContentComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'allitem', component: AllitemComponent }
-    
+      { path: 'additem', component: AddcustomerComponent },
+      { path: 'allitem', component: AllitemComponent },
+      { path: 'allcustomer', component: AllcustomerComponent },
+      { path: 'addcustomer', component: AddcustomerComponent },
+      { path: 'editcustomer/:id', component: EditcustomerComponent }
     ]
   }
 

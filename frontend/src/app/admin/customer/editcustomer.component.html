@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Add new customer</h2>
+<mat-dialog-content>
+ 
+    <mat-form-field>
+      <input matInput placeholder="Company"  name ="name" [(ngModel)]="customer.companyname" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput placeholder="contact" name="contact" [(ngModel)]="customer.contact" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput placeholder="phoneumber" name="phoneumber" [(ngModel)]="customer.phoneumber" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput placeholder="email" name="email" [(ngModel)]="customer.email" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput placeholder="address" name="address" [(ngModel)]="customer.address" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="country" name="country" [(ngModel)]="customer.country" required>
+      <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <textarea matInput placeholder="comments" name="comments" [(ngModel)]="customer.comments" ></textarea>
+    </mat-form-field>
+
+ 
+
+
+</mat-dialog-content>
+
+ <mat-dialog-actions>
+  <button mat-button color="primary" (click)="save()">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,77 @@
+
+ 
+ <button id="fabbutton" mat-mini-fab color="accent" (click)="openAddContactDialog()">+</button>
+
+
+ <div class="allitem-container mat-elevation-z8">
+    <div class="allitem-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  
+    <mat-table #table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="companyname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Company </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.companyname}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="contact">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Contact </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.contact}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phoneumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> phoneumber </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.phoneumber}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.email}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>address </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.address}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> country </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.country }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="comments">
+        <mat-header-cell *matHeaderCellDef mat-sort-header > comments </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{customer.comments }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <md-header-cell *matHeaderCellDef> Actions </md-header-cell>
+        <md-cell *matCellDef="let customer" >
+          <button mat-icon-button (click)="onEdit(customer.id)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="onDelete(customer.id)"><mat-icon>delete_outline</mat-icon></button>
+        </md-cell>
+    </ng-container>
+    <!-- <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="8">
+        Loading data...
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="8">
+        No data.
+      </mat-footer-cell>
+    </ng-container> -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <!-- <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row> -->
+  </mat-table>
+    <mat-paginator #paginator [pageSize]="20" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+  </div>
+
+
+

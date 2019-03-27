@@ -26,6 +26,11 @@ import { DialogService } from '../service/dialog.service';
 import { NotificationService } from '../service/notification.service';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { EdititemComponent } from './item/edititem.component';
+import { CustomerComponent } from './customer/customer.component';
+import { AllcustomerComponent } from './customer/allcustomer.component';
+import { AddcustomerComponent } from './customer/addcustomer.component';
+import { EditcustomerComponent } from './customer/editcustomer.component';
+import { CustomerService } from '../service/customer.service';
 
 
 
@@ -53,10 +58,14 @@ import { EdititemComponent } from './item/edititem.component';
     AllitemComponent,
     MatConfirmDialogComponent,
     EdititemComponent,
+    CustomerComponent,
+    AllcustomerComponent,
+    AddcustomerComponent,
+    EditcustomerComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [RouterModule],
-  providers: [ItemService,ConstantsService,DialogService,NotificationService,],
+  providers: [ItemService,ConstantsService,DialogService,NotificationService,CustomerService],
   bootstrap: [
     NewContactDialogComponent,MatConfirmDialogComponent
   ]

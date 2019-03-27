@@ -1,18 +1,19 @@
-<div class="detail_wrapper" >
-  <div class="detail_info" >
-    <div class="detail_imgwrapper"><img class="img" [src]='image_url' /> </div>
-    <!-- <p class="price"><span>{{item.description}}</span></p> -->
-    <!-- <div class="action">
-       
-    </div> -->
-    <div class="detail_action">   
-      <div class="action_botton">
-        <a  class="view" routerLink="/shop/product/{{item.id}}">View details</a>
+<div class="ih-item square colored effect6 bottom_to_top">
+  <a >
+    <div class="img"><img class="img" [src]='image_url' alt="img" /> </div>
+    <div class="info">
+      <h3>{{item.name}}</h3>
+      <p>{{item.description}}</p>
+    
+      <div class="action_panel">
+      <span class="action_botton">
+          <a  class="view" routerLink="/shop/product/{{item.id}}"><i class="fa fa-search-plus" title="shopcart"></i> details</a>
+      </span>
+      <span class="action_botton">
+        <a class="addicon" (click)="onAddToCart()"><i class="fa fa-shopping-cart" title="shopcart"></i> quote</a>
+      </span>
       </div>
-      <div class="action_botton">
-        <button type="button" class="cart cart_button" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" class="image_botton"/></button>
-      </div>
-  </div>
-  </div>
-  <div class="title">{{item.name}}</div>
+    </div>
+  </a>
 </div>
+<div class="itemname">{{item.name}}</div>  

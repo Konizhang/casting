@@ -27,8 +27,7 @@ export class AllitemComponent implements OnInit {
   items : Item[] ;
   displayedColumns = ['name', 'description', 'partnumber','category', 'brand', 'weight', 'material','actions'];
   dataSource: MatTableDataSource<Item>;
-  post1: any;
-  post2: any;
+
   existingitem :Item;
   constructor(private snackBar: MatSnackBar,private dialog: MatDialog, private itemService : ItemService, private constantsService :ConstantsService,
     private dialogn: MatDialog,
