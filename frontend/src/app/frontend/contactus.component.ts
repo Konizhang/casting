@@ -22,6 +22,7 @@ export class ContactusComponent implements OnInit {
 
   saveComments(message : Message){
 
+    
     this.messageService.saveComments(message).subscribe(resp => {
       this.notificationService.success('We will contact you shortly');
     });

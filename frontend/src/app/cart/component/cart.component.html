@@ -17,7 +17,7 @@
       </div>
     <div class="emailrow"> <label>Email address <span class="redalert">*</span></label> <input type=text class="email"  [(ngModel)]="email"/></div>
     <div> <label>Name <span class="redalert">*</span></label><input type=text class="username"  [(ngModel)]="username"/></div>
-
+        <label *ngIf="showmsg"> <span class="redalert">*</span> is required field </label>
       <button type="button" class="pay-btn" (click)="onquota()" >Quote your parts </button>
     </div>
     <button type="button" class="close-btn" *ngIf='expanded' (click)="onCartClick()">Close</button>

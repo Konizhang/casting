@@ -14,7 +14,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
 import { ItemService } from './service/item.service';
 import { CartEntryComponent } from './cart/cart-entry.component';
 import { ShopModule } from './cart/shop.module';
-import { DataService } from './service/data.service';
+
 import { CartService } from './service/cart.service';
 import { HttpModule } from '@angular/http';
 import { ProductlistComponent } from './cart/component/productlist.component';
@@ -37,7 +37,7 @@ import { ProductlistComponent } from './cart/component/productlist.component';
     BrowserAnimationsModule,
     HttpModule 
   ],
-  providers: [ItemService,AuthService, AuthGuard,DataService, CartService,
+  providers: [ItemService,AuthService, AuthGuard, CartService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
@@ -46,3 +46,4 @@ import { ProductlistComponent } from './cart/component/productlist.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

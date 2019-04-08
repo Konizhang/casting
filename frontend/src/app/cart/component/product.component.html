@@ -22,7 +22,11 @@
               <em>$<span>62.00</span></em> -->
             </div>
             <div class="availability">
-              Availability: <strong>In Stock</strong>
+              Availability: 
+             <div class="alert alert-success" role="alert">
+                <strong>In Stock</strong>
+              </div>
+             
             </div>
           </div>
           <div class="description">
@@ -48,6 +52,8 @@
             <!-- <button class="btn btn-primary" type="submit">Add to list</button> -->
           </div>
          
+          <button type="button" class="btn btn-primary btn-sm float-right" (click)="onAddToCart()"><i class="fa fa-shopping-cart" title="shopcart"></i> quote</button>
+       
           <ul class="social-icons">
             <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
             <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
@@ -57,7 +63,7 @@
           </ul>
         </div>
 
-       
+        
         <div class="sticker sticker-sale"></div>
       </div>
     </div>

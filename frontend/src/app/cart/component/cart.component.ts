@@ -1,10 +1,11 @@
 import { Quote } from './../../model/quote';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef ,Input} from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Subscription } from 'rxjs';
+import { NotificationService } from '../../service/notification.service';
 
-const OFFSET_HEIGHT: number = 170
-const PRODUCT_HEIGHT: number = 48
+const OFFSET_HEIGHT: number = 250
+const PRODUCT_HEIGHT: number = 30
 
 @Component({
   selector: 'cart',
@@ -23,15 +24,20 @@ export class CartComponent implements OnInit {
 
   username:string
   email:string
-
+  showmsg: boolean = false;
   changeDetectorRef: ChangeDetectorRef
 
+  @Input() inputNumProducts: number;
 
-  constructor(private cartService: CartService, changeDetectorRef: ChangeDetectorRef) {
+  constructor(private cartService: CartService, private notificationService: NotificationService, changeDetectorRef: ChangeDetectorRef) {
     this.changeDetectorRef = changeDetectorRef
   }
 
   ngOnInit() {
+   
+    this.numProducts = this.inputNumProducts;
+
+    console.log( this.numProducts +" this.numProducts");
     this.expandedHeight = '0'
     this.cartService.productAdded$.subscribe(data => {
       this.products = data.products
@@ -70,17 +76,23 @@ export class CartComponent implements OnInit {
   }
 
   onquota(){
-    //
-   let  quote = new Quote(this.username,this.email,this.products);
+   
+  if(this.username == undefined||this.email ==undefined){
+    this.showmsg = true ;
+  }else{
+    let  quote = new Quote(this.username,this.email,this.products);
     
-    console.log(quote);
-
     this.cartService.submitQuote(quote).subscribe(result => {
-     console.log(result)
-    });
+    console.log(result)
+    this.notificationService.success('We will quote you shortly');
+   });
+   //send your action to backend send a quote
+   this.cartService.flushCart();
 
-    //send your action to backend send a quote
-    this.cartService.flushCart();
+
+  }
+
+
   }
 
 }

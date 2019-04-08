@@ -24,6 +24,7 @@ export class CartService extends BaseService{
 
 
   addProductToCart(product){
+    console.log(product);
     let exists = false
     let parsedPrice = 0.1
     // parseFloat(product.price.replace(/\./g, '').replace(',', '.'))
@@ -69,4 +70,10 @@ export class CartService extends BaseService{
   submitQuote(quotes){
      return  this.http.post(this.base_url+'/'+this.endpoint,quotes);
   }
+
+
+  displayItems(){
+    let i = this.items.length
+    return i;
+ }
 }

@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { FiltersComponent } from './component/filters.component';
 import { SearchBarComponent } from './component/search-bar.component';
-import { DataService } from '../service/data.service';
+
 import { CartService } from '../service/cart.service';
 import { Category } from '../model/category';
 import { ConstantsService } from '../service/constants.service';

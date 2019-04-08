@@ -26,6 +26,7 @@ export class ProductlistComponent implements OnInit {
   private page:number;
   private id:number;
   currentSorting: string;
+  private numProducts : number
 
   @ViewChild('filtersComponent')
   filtersComponent: FiltersComponent;
@@ -63,6 +64,7 @@ export class ProductlistComponent implements OnInit {
   constructor(private dataService: DataService, private cartService: CartService,private constantsService: ConstantsService,private itemService: ItemService){  }
 
   ngOnInit(){
+    this.numProducts = this.cartService.displayItems();
     this.image_url = this.itemService.domain_url+"/images/items";
     this.page = 0;
     this.constantsService.getCategories().subscribe(categories => {
@@ -89,6 +91,8 @@ export class ProductlistComponent implements OnInit {
       });
      // this.sortProducts('name')
     })
+   
+    
   }
 
   setPages(i,event:any){
