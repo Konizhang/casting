@@ -10,12 +10,11 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./addcustomer.component.scss']
 })
 export class AddcustomerComponent implements OnInit {
- 
-  customer : Customer;
+  customer: Customer;
 
   constructor(
-    private customerService : CustomerService,
-  
+    private customerService: CustomerService,
+
     private dialogRef: MatDialogRef<AddcustomerComponent>,
     @Inject(MAT_DIALOG_DATA) public data
     ) { }
@@ -28,11 +27,11 @@ export class AddcustomerComponent implements OnInit {
 
   ngOnInit( ) {
    this.customer = new Customer();
- 
+
   }
 
   save() {
-    
+
       this.customerService.addCustomer(this.customer).subscribe(customer => {
          this.dialogRef.close(customer);
      });

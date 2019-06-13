@@ -21,14 +21,14 @@ export class SidenavComponent implements OnInit {
   dir: string = 'ltr';
 
   constructor(
-    zone: NgZone, 
+    zone: NgZone,
   //  private userService: UserService,
     private router: Router) {
     // this.mediaMatcher.addListener(mql =>
     //   zone.run(() => this.mediaMatcher = mql));
   }
 
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, {static: false}) sidenav: MatSidenav;
 
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;

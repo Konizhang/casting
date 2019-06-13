@@ -22,22 +22,22 @@ import { EdititemComponent } from './edititem.component';
 })
 export class AllitemComponent implements OnInit {
 
-  categories : Category[];
-  brands : Brand[];
-  items : Item[] ;
+  categories: Category[];
+  brands: Brand[];
+  items: Item[] ;
   displayedColumns = ['name', 'description', 'partnumber','category', 'brand', 'weight', 'material','actions'];
   dataSource: MatTableDataSource<Item>;
 
-  existingitem :Item;
+  existingitem:Item;
   constructor(private snackBar: MatSnackBar,private dialog: MatDialog, private itemService : ItemService, private constantsService :ConstantsService,
     private dialogn: MatDialog,
     private notificationService: NotificationService,
     private dialogService: DialogService,
-    private changeDetectorRefs: ChangeDetectorRef) { 
+    private changeDetectorRefs: ChangeDetectorRef) {
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   ngAfterViewInit() {
 
@@ -52,9 +52,9 @@ export class AllitemComponent implements OnInit {
       this.categories = result[0];
       this.brands = result[1];
       this.itemService.getItems().subscribe(items => {
-  
+
          let itemarray = items.map(item => {
-           
+
            let brand = this.constantsService.getObjectName( this.brands,item['brand_id']);
            let category = this.constantsService.getObjectName( this.categories,item['category_id']);
            return {
@@ -64,7 +64,7 @@ export class AllitemComponent implements OnInit {
              ...item
            };
            },
-         ); 
+         );
          this.items = itemarray;
          this.dataSource = new MatTableDataSource<Item>(itemarray);
          this.dataSource.paginator = this.paginator;
@@ -75,10 +75,10 @@ export class AllitemComponent implements OnInit {
   //     this.categories = result[0];
   //     this.brands = result[1];
   //     return  this.itemService.getItems().subscribe(items =>
-     
+
   //       {
   //         let itemarray = items.map(item => {
-      
+
   //           let brand = this.constantsService.getObjectName( this.brands,item['brand_id']);
   //           let category = this.constantsService.getObjectName( this.categories,item['category_id']);
   //           return {
@@ -88,13 +88,13 @@ export class AllitemComponent implements OnInit {
   //             ...item
   //           };
   //           },
-  //         ); 
+  //         );
 
-  //        }   
+  //        }
   //     )
   //   })
   //   .subscribe(items=>this.items = items);
-  
+
   }
 
 
@@ -128,7 +128,7 @@ export class AllitemComponent implements OnInit {
   }
 
   onEdit(id){
-   
+
     this.itemService.getItem(id).subscribe(item => {
      this.existingitem = item;
       let dialogRef = this.dialog.open(EdititemComponent, {
@@ -154,12 +154,12 @@ export class AllitemComponent implements OnInit {
           this.notificationService.warn('Deleted successfully');
         }
       );
-       
+
       }
     });
   }
 
- 
+
   private refreshTable() {
     this.dataSource.paginator = this.paginator;
 }

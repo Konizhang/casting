@@ -21,7 +21,7 @@ import { ShopRoutingModule } from './shop.routing';
 import { ConstantsService } from 'src/app/service/constants.service';
 import { FrontendModule } from '../frontend/frontend.module';
 import { ProductlistComponent } from './component/productlist.component';
-
+//import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
   imports: [
@@ -30,8 +30,8 @@ import { ProductlistComponent } from './component/productlist.component';
     HttpClientModule,
     JsonpModule,
     ShopRoutingModule,
-    FrontendModule,
     FrontendModule
+  //  LightboxModule
   ],
   declarations: [
     CartEntryComponent,
@@ -43,7 +43,8 @@ import { ProductlistComponent } from './component/productlist.component';
     ProductThumbnailComponent,
     CartPreviewComponent,
     ProductlistComponent,
-    SortFiltersComponent
+    SortFiltersComponent,
+
   ],
   providers: [ItemService ,
               DataService,
@@ -52,4 +53,4 @@ import { ProductlistComponent } from './component/productlist.component';
     ],
     bootstrap: [CartEntryComponent]
 })
-export class ShopModule { }  
+export class ShopModule { }

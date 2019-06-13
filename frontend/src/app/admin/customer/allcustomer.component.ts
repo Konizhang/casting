@@ -22,7 +22,7 @@ export class AllcustomerComponent implements OnInit {
   customers : Customer[] ;
   displayedColumns = ['companyname', 'contact', 'phoneumber','email', 'address', 'country', 'comments','actions'];
   dataSource: MatTableDataSource<Customer>;
-  
+
   existingcustomer :Customer;
 
 
@@ -30,11 +30,11 @@ export class AllcustomerComponent implements OnInit {
     private dialogn: MatDialog,
     private notificationService: NotificationService,
     private dialogService: DialogService,
-    private changeDetectorRefs: ChangeDetectorRef) { 
+    private changeDetectorRefs: ChangeDetectorRef) {
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort,{static: false}) sort: MatSort;
 
   ngAfterViewInit() {
 
@@ -50,7 +50,7 @@ export class AllcustomerComponent implements OnInit {
       });
     }
 
-    
+
   openAddContactDialog(): void {
 
     let dialogRef = this.dialog.open(AddcustomerComponent, {
@@ -81,7 +81,7 @@ export class AllcustomerComponent implements OnInit {
   }
 
   onEdit(id){
-   
+
     this.customerService.getCustomer(id).subscribe(customer => {
      this.existingcustomer = customer;
       let dialogRef = this.dialog.open(EditcustomerComponent, {
@@ -110,7 +110,7 @@ export class AllcustomerComponent implements OnInit {
     });
   }
 
- 
+
   private refreshTable() {
     this.dataSource.paginator = this.paginator;
 }

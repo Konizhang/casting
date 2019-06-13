@@ -17,6 +17,7 @@ import { AuthGuard } from '../service/auth.guard';
 import { TokenInterceptorService } from '../service/token-interceptor.service';
 import { PageHeaderComponent } from './page-header.component';
 import { ContactusComponent } from './contactus.component';
+import { FooterComponent } from './footer.component';
 
   
 @NgModule({
@@ -29,7 +30,8 @@ import { ContactusComponent } from './contactus.component';
     HttpClientModule
   ],
   exports:  [
-    PageHeaderComponent
+    PageHeaderComponent,
+    FooterComponent,
   ],
   declarations: [  ItemsComponent,
     SignupComponent,
@@ -37,6 +39,7 @@ import { ContactusComponent } from './contactus.component';
     NewsComponent,
     LandingComponent,
     PageHeaderComponent,
+    FooterComponent,
     ContactusComponent ],
     providers: [ItemService,AuthService, AuthGuard, 
       {

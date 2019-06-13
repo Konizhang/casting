@@ -17,7 +17,7 @@ import { ItemService } from '../../service/item.service';
 export class ProductlistComponent implements OnInit {
 
   categories : Category[];
-  
+
   items: Item[];
 
   mainFilter: any
@@ -28,10 +28,10 @@ export class ProductlistComponent implements OnInit {
   currentSorting: string;
   private numProducts : number
 
-  @ViewChild('filtersComponent')
+  @ViewChild('filtersComponent', {static: false})
   filtersComponent: FiltersComponent;
 
-  @ViewChild('searchComponent')
+  @ViewChild('searchComponent', {static: false})
   searchComponent: SearchBarComponent;
 
 
@@ -81,7 +81,7 @@ export class ProductlistComponent implements OnInit {
         priceFilter: this.priceFilters[0]
       }
 
-  
+
       //Make a deep copy of the original data to keep it immutable
      this.itemService.getItemsby(1,'category',1).subscribe(data => {
       this.category_id =data.data[0].category_id ;
@@ -91,8 +91,8 @@ export class ProductlistComponent implements OnInit {
       });
      // this.sortProducts('name')
     })
-   
-    
+
+
   }
 
   setPages(i,event:any){
@@ -101,13 +101,13 @@ export class ProductlistComponent implements OnInit {
     event.preventDefault();
 
     this.page = i;
-   
+
     this.getitems( this.category_id,i+1);
-   
+
   }
 
   getitems(id,i){
-  
+
     this.itemService.getItemsby(id,'category',i).subscribe(data => {
 
       this.id =id;
@@ -122,7 +122,7 @@ export class ProductlistComponent implements OnInit {
       this.pages = new Array(data.last_page);
    });
 
-    
+
   }
 
 

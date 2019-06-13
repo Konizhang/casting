@@ -17,17 +17,12 @@ import { ShopModule } from './cart/shop.module';
 
 import { CartService } from './service/cart.service';
 import { HttpModule } from '@angular/http';
-import { ProductlistComponent } from './cart/component/productlist.component';
-
-
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   
-  
-   ],
+  ],
   imports: [
     ShopModule,
     BrowserModule,
@@ -35,9 +30,9 @@ import { ProductlistComponent } from './cart/component/productlist.component';
     AdminModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpModule 
+    HttpModule
   ],
-  providers: [ItemService,AuthService, AuthGuard, CartService,
+  providers: [ItemService, AuthService, AuthGuard, CartService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
@@ -46,4 +41,3 @@ import { ProductlistComponent } from './cart/component/productlist.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- 

@@ -44,6 +44,11 @@
     </mat-form-field>
 
     <mat-form-field>
+      <input matInput placeholder="Part Number" name="partnumber" [(ngModel)]="item.partnumber" required>
+    </mat-form-field>
+
+
+    <mat-form-field>
       <input matInput placeholder="weight" name="weight" [(ngModel)]="item.weight" required>
       <!-- <mat-error *ngIf="item.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>

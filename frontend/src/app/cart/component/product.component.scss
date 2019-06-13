@@ -1694,3 +1694,16 @@ h1 {
 	border: 1px solid #e2e2e2;
 	box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
+
+
+.lightboximage{
+width: 22%!important;
+float:left;
+margin-top: 1rem;
+margin-right: 0.5rem;
+cursor: pointer;
+}
+
+html, body {
+    height: 0;
+}

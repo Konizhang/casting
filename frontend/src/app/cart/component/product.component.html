@@ -4,15 +4,16 @@
   <div class="col-md-9 col-sm-7">
     <div class="product-page">
       <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="product-main-image" >
-            <img src="{{image_url}}/item-{{item?.image}}.png" alt="Cool green dress with red bell" class="img-responsive" width=100%>
-           <img src="assets/img/model7.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 600px; height: 800px; border: none; max-width: none;"></div>
-          <!-- <div class="product-other-images">
-            <a href="assets/img/model3.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/img/model3.jpg"></a>
-            <a href="assets/img/model4.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/img/model4.jpg"></a>
-            <a href="assets/img/model5.jpg" class="fancybox-button" rel="photos-lib"><img alt="Berry Lace Dress" src="assets/img/model5.jpg"></a>
-          </div> -->
+
+          <div class="product-main-image col-md-6 col-sm-6" >
+           <img src="{{image_url}}/item-{{item?.image}}.png" alt="Cool green dress with red bell" class="img-responsive" width=100%
+
+             >
+
+           <!-- <div  *ngFor="let image of _albums; let i=index">
+              <img class="lightboximage" [src]="image.thumb"  />
+           </div> -->
+
         </div>
         <div class="col-md-6 col-sm-6">
           <h4>{{item?.name}}</h4>
@@ -22,20 +23,20 @@
               <em>$<span>62.00</span></em> -->
             </div>
             <div class="availability">
-              Availability: 
+              Availability:
              <div class="alert alert-success" role="alert">
                 <strong>In Stock</strong>
               </div>
-             
+
             </div>
           </div>
           <div class="description">
             <p>{{item?.description}}.</p>
           </div>
           <div class="product-page-options">
-       
+
             <label class="control-label">Part Number:</label> <p>{{item?.partnumber}}.</p>
-        
+
           </div>
           <div class="product-page-options">
             <div class="pull-left">
@@ -48,12 +49,12 @@
             </div>
           </div>
           <div class="product-page-cart">
-            
+
             <!-- <button class="btn btn-primary" type="submit">Add to list</button> -->
           </div>
-         
+
           <button type="button" class="btn btn-primary btn-sm float-right" (click)="onAddToCart()"><i class="fa fa-shopping-cart" title="shopcart"></i> quote</button>
-       
+
           <ul class="social-icons">
             <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
             <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
@@ -62,10 +63,8 @@
             <li><a class="tumblr" data-original-title="tumblr" href="javascript:;"></a></li>
           </ul>
         </div>
-
-        
         <div class="sticker sticker-sale"></div>
-      </div>
+
     </div>
   </div>
 

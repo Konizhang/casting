@@ -16,51 +16,51 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class EdititemComponent implements OnInit {
 
-  item : Item;
+  item: Item;
 
-  categories : Category[];
-  brands : Brand[];
-  category : Category[];
+  categories: Category[];
+  brands: Brand[];
+  category: Category[];
 
   constructor(
-    private itemService : ItemService,
-    private constantsService : ConstantsService,
+    private itemService: ItemService,
+    private constantsService: ConstantsService,
     private dialogRef: MatDialogRef<EdititemComponent>,
     @Inject(MAT_DIALOG_DATA) public data,
-    private router:ActivatedRoute
-    ) { }
+    private router: ActivatedRoute
+  ) { }
 
 
-    name = new FormControl('', [Validators.required]);
+  name = new FormControl('', [Validators.required]);
 
-    getErrorMessage() {
-      return this.name.hasError('required') ? 'You must enter a name' : '';
-    }
-  
+  getErrorMessage() {
+    return this.name.hasError('required') ? 'You must enter a name' : '';
+  }
 
 
-  ngOnInit( ) {
 
-     this.item = this.data.item;
-     this.constantsService.getCategories().subscribe(categories => {
-        this.categories = categories;
-     });
- 
-     this.constantsService.getBrands().subscribe(brands => {
-       this.brands = brands;
-     });
-  
-   }
+  ngOnInit() {
+
+    this.item = this.data.item;
+    this.constantsService.getCategories().subscribe(categories => {
+      this.categories = categories;
+    });
+
+    this.constantsService.getBrands().subscribe(brands => {
+      this.brands = brands;
+    });
+
+  }
   dismiss() {
     this.dialogRef.close(null);
   }
 
 
   save() {
-  
-    this.itemService.updateIteme(this.item.id,this.item).subscribe(item => {
-       this.dialogRef.close(item);
-   });
-}
+
+    this.itemService.updateIteme(this.item.id, this.item).subscribe(item => {
+      this.dialogRef.close(item);
+    });
+  }
 
 }
