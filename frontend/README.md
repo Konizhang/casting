@@ -6,3 +6,8 @@ TODO:  1 fix pagination problem and a next previous page
        4 deploy to google firebase host to  mnsicwearpart.web.app
        5 fix data issue and picture issue 
 
+
+https://docs.beyondco.de/laravel-websockets/
+
+
+ng g c cart/component/pagination --flat -is --skipTests

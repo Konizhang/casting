@@ -15,7 +15,7 @@
 
 .filters-wrapper{
   position: relative;
-  
+
 }
 
 .listcontrol {
@@ -83,7 +83,7 @@ url-form{
     }
 
     .main-container{
-      
+
       padding-top: 34px;
     }
     search-bar{
@@ -109,14 +109,14 @@ url-form{
 
 .footerpagination{
   margin-top: -3rem;
-  z-index:9999;
+  z-index:0;
 }
 
 .current-page {
 
   border: 1px solid #e2e2e2;
   box-shadow: 1px 1px 1px rgba(0,0,0,.15) inset;
-  
+
   font-size: 14px;
   font-weight: 600;
   margin-left: 1rem
@@ -131,4 +131,18 @@ url-form{
 
 .pageactive{
   background-color: #e2e2e2;
+}
+
+.current-page{
+  cursor: pointer;
+}
+
+
+
+.isDisabled {
+  display: none;
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
 }

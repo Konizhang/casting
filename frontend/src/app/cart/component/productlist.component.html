@@ -29,11 +29,31 @@
           </div>
           <ng-template #elseBlock>There is no item in this category</ng-template>
           <div *ngIf="pages?.length>1" class="footerpagination">
-          <ul class=" pagination"> 
+          <!-- <ul class=" pagination">
               <li class="" *ngFor="let p of pages;let i=index">
-               <a class="current-page" href="#" (click)=setPages(i,$event) [ngClass]="{'pageactive':page==i}">{{i+1}}</a>  
-              </li>    
-         </ul>
+               <a class="current-page" href="#" (click)=setPages(i,$event) [ngClass]="{'pageactive':page==i}">{{i+1}}</a>
+              </li>
+         </ul> -->
+
+         <ul class="pagination">
+
+          <li [ngClass]="{isDisabled:page === 1}">
+                <a  (click)="setFirstePages(1,$event)"  class="current-page">First</a>
+          </li>
+          <li [ngClass]="{isDisabled:page === 1}">
+                <a  (click)="setPrePages(page - 1,$event)" class="current-page">Previous</a>
+          </li>
+
+          <li *ngFor="let p of npages ;let i=index">
+            <a (click)="setPages(p,$event)" class="current-page"  [ngClass]="{'pageactive':page==p}" >{{p}}</a>
+          </li>
+          <li [ngClass]="{isDisabled:page === totalPages}">
+              <a  (click)="setNextPages(page + 1,$event)" class="current-page" >Next</a>
+          </li>
+              <li [ngClass]="{isDisabled:page === totalPages}">
+          <a  (click)="setNextPages(totalPages,$event)" class="current-page" >Last</a>
+          </li>
+</ul>
          </div>
         </div>
       </div>

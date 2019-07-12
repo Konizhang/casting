@@ -55,7 +55,7 @@ export class FiltersComponent implements OnInit {
 
 
   filtercateogry(id){
-    console.log(id);
+
     this.onCategoryChange.emit({
       id: id
     })

@@ -1,5 +1,5 @@
  /* ANIMATIONS */
-  
+
   Simple CSS3 Fade-in-down Animation
   .fadeInDown {
     -webkit-animation-name: fadeInDown;
@@ -9,7 +9,7 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
   }
-  
+
   @-webkit-keyframes fadeInDown {
     0% {
       opacity: 0;
@@ -22,7 +22,7 @@
       transform: none;
     }
   }
-  
+
   @keyframes fadeInDown {
     0% {
       opacity: 0;
@@ -35,55 +35,55 @@
       transform: none;
     }
   }
-  
+
   /* Simple CSS3 Fade-in Animation */
   @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  
+
   .fadeIn {
     opacity:0;
     -webkit-animation:fadeIn ease-in 1;
     -moz-animation:fadeIn ease-in 1;
     animation:fadeIn ease-in 1;
-  
+
     -webkit-animation-fill-mode:forwards;
     -moz-animation-fill-mode:forwards;
     animation-fill-mode:forwards;
-  
+
     -webkit-animation-duration:1s;
     -moz-animation-duration:1s;
     animation-duration:1s;
   }
-  
+
   .fadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
   }
-  
+
   .fadeIn.second {
     -webkit-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
   }
-  
+
   .fadeIn.third {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
   }
-  
+
   .fadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
   }
-  
+
   /* Simple CSS3 Fade-in Animation */
 
 
-#login animation 
+#login animation
 
 http://local.casting.com/images/items/item-1543377798.png
 
@@ -93,9 +93,19 @@ Todo :
 2) add lightbox to display  product images.
 https://www.npmjs.com/package/ngx-lightbox
 3) add social media link in the page details.
-4) add barcode in the every page details 
-5) displya item add in the init page list 
+4) add barcode in the every page details
+5) displya item add in the init page list
 6) design a blast email template
+
+TODO:  1 fix pagination problem and a next previous page   https://www.freakyjolly.com/angular-7-6-pagination-implement-local-or-server-pagination-in-3-steps/
+       2 fix issue item count for reactive
+       3 add quote no  to backend
+       4 deploy to google firebase host to  mnsicwearpart.web.app
+       5 fix data issue and picture issue
+       6 add soical media button for facebook twitter linkeins   https://murhafsousli.github.io/ngx-sharebuttons/#/global-options
+       7 styling singup
+
+
 
 
 node_modules/rxjs/internal/Observable.d.ts(15,37): error TS1183: An implementation cannot be declared in ambient contexts.
@@ -105,5 +115,28 @@ www.mnsicwearparts.com
 
 
 
+  <ul class="pagination">
+
+            <li [ngClass]="{disabled:page === 1}">
+                  <a  (click)="setPages(1,$event)">First</a>
+            </li>
+            <li [ngClass]="{disabled:page === 1}">
+                  <a  (click)="setPages(page - 1,$event)">Previous</a>
+            </li>
+
+            <li *ngFor="let p of pages;let i=index">
+              <a (click)="setPages(i,$event)" class="current-page"  [ngClass]="{'pageactive':page==i}" >{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:page === totalPages}">
+                <a  (click)="setPages(page + 1)">Next</a>
+            </li>
+                <li [ngClass]="{disabled:page === totalPages}">
+            <a  (click)="setPages(totalPages)">Last</a>
+            </li>
+</ul>
+
+<li class="" *ngFor="let p of [0,1,2,3,4,5];let i=index">
+               <a class="current-page" href="#" (click)=setPages(i,$event) [ngClass]="{'pageactive':page==i}">{{i+p}}</a>
+</li>
 
 

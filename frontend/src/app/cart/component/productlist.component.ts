@@ -9,6 +9,9 @@ import { CartService } from '../../service/cart.service';
 import { ConstantsService } from '../../service/constants.service';
 import { ItemService } from '../../service/item.service';
 
+
+
+
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
@@ -16,17 +19,26 @@ import { ItemService } from '../../service/item.service';
 })
 export class ProductlistComponent implements OnInit {
 
+  p: number = 1;
+  collection: any[] ;
+
   categories : Category[];
 
   items: Item[];
 
-  mainFilter: any
+  mainFilter: any;
+
   private category_id:number;
-  private pages:Array<number>;
-  private page:number;
-  private id:number;
+  public pages:Array<number>;
+  public page:number=1;
+  public id:number;
   currentSorting: string;
-  private numProducts : number
+  public numProducts : number;
+
+  public currentPage : number = 1;
+  public totalPages : number
+
+  public npages : Array<number>;
 
   @ViewChild('filtersComponent', {static: false})
   filtersComponent: FiltersComponent;
@@ -64,9 +76,10 @@ export class ProductlistComponent implements OnInit {
   constructor(private dataService: DataService, private cartService: CartService,private constantsService: ConstantsService,private itemService: ItemService){  }
 
   ngOnInit(){
+    this.npages = [1, 2, 3, 4, 5];
     this.numProducts = this.cartService.displayItems();
     this.image_url = this.itemService.domain_url+"/images/items";
-    this.page = 0;
+    this.page = 1;
     this.constantsService.getCategories().subscribe(categories => {
       this.categories = categories;
     });
@@ -86,8 +99,9 @@ export class ProductlistComponent implements OnInit {
      this.itemService.getItemsby(1,'category',1).subscribe(data => {
       this.category_id =data.data[0].category_id ;
       this.items = data.data;
-      this.id =1;
+      this.id = 1;
       this.pages = new Array(data.last_page);
+      this.totalPages = data.last_page;
       });
      // this.sortProducts('name')
     })
@@ -95,49 +109,101 @@ export class ProductlistComponent implements OnInit {
 
   }
 
-  setPages(i,event:any){
-
-    console.log(this.page);
+  setPages( i: number , event: any){
     event.preventDefault();
-
     this.page = i;
+    this.getitems( this.category_id,i);
+    if(i < (this.totalPages - 2) && ( i > 2) ){
+      this.npages = [i - 2, i - 1, i,  i + 1, i + 2];
+    }
+  }
 
-    this.getitems( this.category_id,i+1);
+
+  setNextPages( i: number, event: any){
+
+    console.log(i);
+    event.preventDefault();
+    this.page = i;
+    this.getitems( this.category_id,i);
+
+    if(i == this.totalPages||(i == (this.totalPages-1))){
+      this.npages = [this.totalPages-4, this.totalPages-3, this.totalPages-2, this.totalPages-1, this.totalPages];
+    }else{
+
+      if(i < this.npages[4]){
+        let a = this.npages.map(function (value, index, array) {
+          return value + 1;
+        });
+        this.npages = a;
+      }
+
+   }
+
+
+
+  }
+
+  setFirstePages(i,event:any){
+    event.preventDefault();
+    this.page = 1;
+    this.getitems( this.category_id,i-1);
+    if(i==1){
+      this.npages = [1, 2, 3, 4, 5];
+    }
+
+   console.log( this.npages);
+  }
+
+
+
+
+  setPrePages( i: number, event: any){
+    event.preventDefault();
+    this.page = i;
+    this.getitems( this.category_id,i);
+    if ( (i === 1) || (i === 2) || (i === 3)){
+      this.npages = [1, 2, 3, 4, 5];
+    }
+
+    if((i > 3) && (i === this.npages[2])){
+      let a = this.npages.map(function (value, index, array) {
+        return value - 1 ;
+      });
+
+      this.npages = a;
+   }
 
   }
 
   getitems(id,i){
 
     this.itemService.getItemsby(id,'category',i).subscribe(data => {
-
       this.id =id;
       this.items = data.data;
       this.pages = new Array(data.last_page);
      });
   }
 
-  onCategoryChange(obj){
-    this.itemService.getItemsby(obj['id'],'category',1).subscribe(data => {
+  onCategoryChange( obj ){
+    this.itemService.getItemsby(obj['id'], 'category', 1).subscribe(data => {
       this.items = data.data;
       this.pages = new Array(data.last_page);
    });
 
-
+   this.page = 1;
+   this.npages = [1, 2, 3, 4, 5];
   }
 
-
-
-
-  onSearchChange(search){
+  onSearchChange( search ){
     this.mainFilter.search = search.search
     this.updateProducts({
-      type:'search',
-      change:search.change
+      type: 'search',
+      change: search.change
     })
   }
 
   onFilterChange(data){
-     console.log("ibfu"+data);
+
     if(data.type == 'category'){
       if(data.isChecked){
         this.mainFilter.categories.push(data.filter)

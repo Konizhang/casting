@@ -22,6 +22,8 @@ import { ConstantsService } from 'src/app/service/constants.service';
 import { FrontendModule } from '../frontend/frontend.module';
 import { ProductlistComponent } from './component/productlist.component';
 //import { LightboxModule } from 'ngx-lightbox';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { PaginationComponent } from './component/pagination.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ import { ProductlistComponent } from './component/productlist.component';
     HttpClientModule,
     JsonpModule,
     ShopRoutingModule,
-    FrontendModule
+    FrontendModule,
+    NgxPaginationModule
   //  LightboxModule
   ],
   declarations: [
@@ -44,6 +47,7 @@ import { ProductlistComponent } from './component/productlist.component';
     CartPreviewComponent,
     ProductlistComponent,
     SortFiltersComponent,
+    PaginationComponent,
 
   ],
   providers: [ItemService ,
