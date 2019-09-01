@@ -20,9 +20,10 @@ import { ItemService } from '../../service/item.service';
 export class ProductlistComponent implements OnInit {
 
   p: number = 1;
+
   collection: any[] ;
 
-  categories : Category[];
+  categories: Category[];
 
   items: Item[];
 
@@ -33,6 +34,8 @@ export class ProductlistComponent implements OnInit {
   public page: number = 1;
   public id: number;
   currentSorting: string;
+
+
   public numProducts: number;
 
   public currentPage: number = 1;

@@ -65,7 +65,7 @@ export class ItemService extends BaseService{
    return  this.http.delete<Item>(this.base_url+'/'+this.endpoint+'/'+id);
   }
 
-  addItem(item:Item){
+  addItem(item: Item){
     return  this.http.post<Item>(this.base_url+'/'+this.endpoint,item);
   }
 

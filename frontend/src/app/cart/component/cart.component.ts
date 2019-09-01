@@ -99,7 +99,7 @@ export class CartComponent implements OnInit {
     console.log(result)
     this.notificationService.success('We will quote you shortly');
    });
-   //send your action to backend send a quote
+   // send your action to backend send a quote
    this.cartService.flushCart();
 
 
