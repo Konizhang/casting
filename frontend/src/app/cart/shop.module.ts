@@ -21,7 +21,7 @@ import { ShopRoutingModule } from './shop.routing';
 import { ConstantsService } from 'src/app/service/constants.service';
 import { FrontendModule } from '../frontend/frontend.module';
 import { ProductlistComponent } from './component/productlist.component';
-//import { LightboxModule } from 'ngx-lightbox';
+// import { LightboxModule } from 'ngx-lightbox';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PaginationComponent } from './component/pagination.component';
 

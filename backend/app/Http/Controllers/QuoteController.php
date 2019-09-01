@@ -56,7 +56,7 @@ class QuoteController extends Controller
 
         $email =  $input['email'];
         $name  =  $input['name'];
-        $quote = Quote::create(['email'=>$email,'name'=> $name]);
+        $quote = Quote::create(['email'=>$email,'name'=> $name,'quoteno'=>"MNS".time()]);
 
 
         $products  =  $input['products'];

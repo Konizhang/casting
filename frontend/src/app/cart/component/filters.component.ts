@@ -10,24 +10,24 @@ import { Category } from '../../model/category';
 export class FiltersComponent implements OnInit {
 
   @Input()
-  categories: Category[]
+  categories: Category[];
 
   @Input()
-  customFilters: any[]
+  customFilters: any[];
 
   @Input()
-  priceFilters: any[]
+  priceFilters: any[];
 
   @Output()
-  onFilterChange = new EventEmitter<any>()
+  onFilterChange = new EventEmitter<any>();
 
   @Output()
-  onCategoryChange = new EventEmitter<any>()
+  onCategoryChange = new EventEmitter<any>();
 
 
-  showFilters: boolean = true
+  showFilters: boolean = true;
 
-  sideShown: boolean = false
+  sideShown: boolean = false;
 
   constructor() { }
 
@@ -44,7 +44,7 @@ export class FiltersComponent implements OnInit {
   }
 
   onInputChange($event, filter, type){
-    let change = $event.target.checked ? 1: -1
+    const change = $event.target.checked ? 1 : -1;
     this.onFilterChange.emit({
       type: type,
       filter: filter,
@@ -54,7 +54,7 @@ export class FiltersComponent implements OnInit {
   }
 
 
-  filtercateogry(id){
+  filtercateogry(id: number){
 
     this.onCategoryChange.emit({
       id: id

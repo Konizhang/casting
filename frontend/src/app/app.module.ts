@@ -18,6 +18,8 @@ import { ShopModule } from './cart/shop.module';
 import { CartService } from './service/cart.service';
 import { HttpModule } from '@angular/http';
 
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { HttpModule } from '@angular/http';
     AdminModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.forRoot({ count: counterReducer })
   ],
   providers: [ItemService, AuthService, AuthGuard, CartService,
     {

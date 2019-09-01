@@ -95,7 +95,8 @@ jQuery(document).ready(function( $ ) {
   });
 
   // Porfolio filter
-  $("#portfolio-flters li").click ( function() {
+  $("#portfolio-flters li").on("click", function() {
+
     $("#portfolio-flters li").removeClass('filter-active');
     $(this).addClass('filter-active');
 

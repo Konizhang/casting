@@ -28,15 +28,15 @@ export class ProductlistComponent implements OnInit {
 
   mainFilter: any;
 
-  private category_id:number;
-  public pages:Array<number>;
-  public page:number=1;
-  public id:number;
+  private category_id: number;
+  public pages: Array<number>;
+  public page: number = 1;
+  public id: number;
   currentSorting: string;
-  public numProducts : number;
+  public numProducts: number;
 
-  public currentPage : number = 1;
-  public totalPages : number
+  public currentPage: number = 1;
+  public totalPages: number
 
   public npages : Array<number>;
 
@@ -47,7 +47,7 @@ export class ProductlistComponent implements OnInit {
   searchComponent: SearchBarComponent;
 
 
-  image_url : String  = "";
+  image_url: String  = '';
 
 
   sortFilters: any[] = [
@@ -57,10 +57,10 @@ export class ProductlistComponent implements OnInit {
   ]
 
   customFilters: any[] = [
-    { name:'All', value:'all', checked:true },
-    { name:'Available', value:'available', checked:false },
-    { name:'Not Available', value:'unavailable', checked:false },
-    { name:'Bestseller', value:'bestseller', checked:false }
+    { name: 'All', value:'all', checked:true },
+    { name: 'Available', value:'available', checked:false },
+    { name: 'Not Available', value:'unavailable', checked:false },
+    { name: 'Bestseller', value:'bestseller', checked:false }
   ]
 
   priceFilters: any[] = [
@@ -73,7 +73,9 @@ export class ProductlistComponent implements OnInit {
   // constantsService: any;
  // categories: any;
 
-  constructor(private dataService: DataService, private cartService: CartService,private constantsService: ConstantsService,private itemService: ItemService){  }
+  constructor(
+     private dataService: DataService, private cartService: CartService,
+     private constantsService: ConstantsService,private itemService: ItemService) {  }
 
   ngOnInit(){
     this.npages = [1, 2, 3, 4, 5];
@@ -202,18 +204,18 @@ export class ProductlistComponent implements OnInit {
     })
   }
 
-  onFilterChange(data){
+  onFilterChange(data) {
 
-    if(data.type == 'category'){
-      if(data.isChecked){
+    if (data.type == 'category') {
+      if (data.isChecked){
         this.mainFilter.categories.push(data.filter)
-      }else{
+      } else {
         this.mainFilter.categories = this.mainFilter.categories.filter(category => { return category.id != data.filter.id })
       }
-    }else if(data.type == 'custom'){
-      this.mainFilter.customFilter = data.filter
-    }else if(data.type == 'price'){
-      this.mainFilter.priceFilter = data.filter
+    } else if (data.type == 'custom'){
+      this.mainFilter.customFilter = data.filter;
+    } else if (data.type == 'price'){
+      this.mainFilter.priceFilter = data.filter;
     }
     this.updateProducts({
       type:data.type,

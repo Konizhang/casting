@@ -11,17 +11,16 @@ import { ShopModule } from './cart/shop.module';
 // import { GuardService } from "./services/guard.service";
 
 const appRoutes: Routes = [
- 
+
    {    path: 'admin',   loadChildren: () => AdminModule, },
-   {    path: 'shop',  loadChildren: () => ShopModule },  
-   {    path: '',  loadChildren: () => FrontendModule },  
-   {    path: '**', component: LoginComponent } 
+   {    path: 'shop',  loadChildren: () => ShopModule },
+   {    path: '',  loadChildren: () => FrontendModule },
+   {    path: '**', component: LoginComponent }
 ];
- 
+
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, {anchorScrolling: 'enabled'})],
   exports: [RouterModule]
-  
 })
 export class AppRoutingModule {
 

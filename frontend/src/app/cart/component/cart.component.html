@@ -1,5 +1,5 @@
 <div class="preview" [class.expanded]='expanded'>
-  <button [class.not-shown]='!products.length || expanded' type="button" class="circle" (click)="onCartClick()">
+  <button [class.not-shown]='!numProducts || expanded' type="button" class="circle" (click)="onCartClick()">
     <img src="../../assets/cart_white.svg" alt="cart" />
     <div class="indicator"><span>{{numProducts}}</span></div>
   </button>
@@ -9,7 +9,7 @@
       <div class="product" *ngFor="let item of products">
         <div class="row">
           <div class="col-6-sm description">
-            <p> {{item.product.name}} <input type=text class="quantity"  [(ngModel)]="item.quantity"/></p>
+            <p> {{item.product.name}} <span class="txt_partnumber">{{item.product.partnumber}}</span> <input type=text class="quantity"  [(ngModel)]="item.quantity"/></p>
           </div>
             <p></p>
         </div>

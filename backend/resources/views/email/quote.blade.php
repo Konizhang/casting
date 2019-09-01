@@ -22,11 +22,24 @@
          email: {{ $customdata['email'] }}<br>
             products :<br>
 
+            <table>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>No: </th>
+            </tr>
+
             @foreach ($customdata['products'] as $product)
-                 <p>{{$product['product']['id']."-----".$product['product']['name']."-----".$product['quantity'] }}</p>
+
+          
+            <tr>
+                <td>{{$product['product']['id']}}</td>
+                <td>{{$product['product']['name']}} ({{$product['product']['partnumber']}})</td>
+                <td>{{$product['quantity']}}</td>
+            </tr>
             @endforeach
 
-
+            </table>
 
         </div>
     </body>

@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ItemService extends BaseService{
 
   endpoint : string = "items";
- 
+
   size = 10;
 
   url : string = "";
@@ -29,8 +29,8 @@ export class ItemService extends BaseService{
     category_id: new FormControl(''),
     weight: new FormControl('1'),
     material: new FormControl(0),
-   
-  
+
+
   });
 
   initializeFormGroup() {
@@ -40,7 +40,7 @@ export class ItemService extends BaseService{
       description: '',
       brand_id: '',
       category_id: '',
-    
+
       weight: 0,
       material: '',
     });
@@ -50,19 +50,18 @@ export class ItemService extends BaseService{
     this.form.setValue(item);
   }
 
-  getItem(id:number){ 
+  getItem(id: number) {
    return  this.http.get<Item>(this.base_url+'/'+this.endpoint+'/'+id);
   }
 
-  getItems(){ 
-   this.url = this.base_url+'/'+this.endpoint;
-   return  this.http.get<any>(this.url).pipe(
-    map(res => res.data)
-  );
+  getItems() {
+   this.url = this.base_url + '/' + this.endpoint;
+      return  this.http.get<any>(this.url).pipe(
+        map(res => res.data)
+    );
   }
 
-  deleteIteme(id:number){ 
-    
+  deleteIteme(id: number) {
    return  this.http.delete<Item>(this.base_url+'/'+this.endpoint+'/'+id);
   }
 
@@ -70,7 +69,7 @@ export class ItemService extends BaseService{
     return  this.http.post<Item>(this.base_url+'/'+this.endpoint,item);
   }
 
-  getItemsby($id,$type,$page){ 
+  getItemsby($id,$type,$page){
     this.url = this.base_url+'/itemsBy/'+$type+'/'+$id+'?page='+$page;
     console.log( this.url);
     return  this.http.get<any>(this.url)
@@ -80,7 +79,7 @@ export class ItemService extends BaseService{
    }
 
 
-   updateIteme(id:number,item:Item){ 
+   updateIteme(id:number,item:Item){
      return  this.http.put<Item>(this.base_url+'/'+this.endpoint+'/'+id,item);
    }
 

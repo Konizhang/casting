@@ -7,14 +7,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class CartService extends BaseService{
 
-  items: any[] = []
-  cartTotal: number = 0
-  endpoint : string = "quotes";
+  items: any[] = [];
+  cartTotal = 0;
+  endpoint  = 'quotes' ;
+
   private productAddedSource = new Subject<any>()
 
-
-  productAdded$ = this.productAddedSource.asObservable()
-
+  productAdded$ = this.productAddedSource.asObservable();
 
   constructor(private http: HttpClient) {
     super();
@@ -25,21 +24,22 @@ export class CartService extends BaseService{
 
   addProductToCart(product){
     console.log(product);
-    let exists = false
-    let parsedPrice = 0.1
+    let exists = false;
+    let parsedPrice = 0.1;
     // parseFloat(product.price.replace(/\./g, '').replace(',', '.'))
-    this.cartTotal += parsedPrice
-    //Search this product on the cart and increment the quantity
+    this.cartTotal += parsedPrice;
+    // Search this product on the cart and increment the quantity
     this.items = this.items.map(_product => {
       if(_product.product.id == product.id){
-        _product.quantity++
-        exists = true
+        _product.quantity++;
+        exists = true;
       }
-      return _product
+      return _product;
     })
-    //Add a new product to the cart if it's a new product
+
+    // Add a new product to the cart if it's a new product
     if(!exists){
-      product.parsedPrice = parsedPrice
+      product.parsedPrice = parsedPrice;
       this.items.push({
         product:product,
         quantity:1
@@ -51,13 +51,13 @@ export class CartService extends BaseService{
 
   deleteProductFromCart(product){
     this.items = this.items.filter(_product => {
-      if(_product.product.id == product.id){
-        this.cartTotal -= _product.product.parsedPrice*_product.quantity
-        return false
+      if (_product.product.id == product.id) {
+        this.cartTotal -= _product.product.parsedPrice*_product.quantity;
+        return false;
       }
-      return true
-     })
-    this.productAddedSource.next({ products: this.items, cartTotal: this.cartTotal })
+      return true;
+     });
+    this.productAddedSource.next({ products: this.items, cartTotal: this.cartTotal });
   }
 
 
@@ -68,12 +68,17 @@ export class CartService extends BaseService{
   }
 
   submitQuote(quotes){
-     return  this.http.post(this.base_url+'/'+this.endpoint,quotes);
+     return  this.http.post(this.base_url + '/' + this.endpoint, quotes);
   }
 
 
   displayItems(){
-    let i = this.items.length
+    let i = this.items.length;
     return i;
  }
+
+  displayProduct(){
+    let i = this.items;
+    return i;
+  }
 }

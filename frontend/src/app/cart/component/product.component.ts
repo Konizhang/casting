@@ -4,9 +4,10 @@ import { ItemService } from '../../service/item.service';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../../model/item';
 import { CartService } from '../../service/cart.service';
-//import { Lightbox } from 'ngx-lightbox';
+// import { Lightbox } from 'ngx-lightbox';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
@@ -17,10 +18,9 @@ export class ProductComponent implements OnInit {
   image_url: String  = '';
   _albums  = [];
 
-  constructor( private itemservice:ItemService,private router: ActivatedRoute,private cartService: CartService
-        //,private _lightbox: Lightbox
-        )
-  {
+  constructor( private itemservice: ItemService, private router: ActivatedRoute, private cartService: CartService
+        // ,private _lightbox: Lightbox
+        ) {
     // for (let i = 1; i <= 4; i++) {
     //   const src = 'assets/img//team-' + i + '.jpg';
     //   const caption = 'Image ' + i + ' caption here';
@@ -44,8 +44,8 @@ export class ProductComponent implements OnInit {
 
   }
 
-  onAddToCart(){
-    this.cartService.addProductToCart(this.item)
+  onAddToCart() {
+    this.cartService.addProductToCart(this.item);
   }
 
 

@@ -1,8 +1,9 @@
 import { Quote } from './../../model/quote';
 import { Component, OnInit, ChangeDetectorRef ,Input} from '@angular/core';
 import { CartService } from '../../service/cart.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { NotificationService } from '../../service/notification.service';
+import { Store, select } from '@ngrx/store';
 
 const OFFSET_HEIGHT: number = 250
 const PRODUCT_HEIGHT: number = 30
@@ -20,32 +21,38 @@ export class CartComponent implements OnInit {
   animatePopout: boolean = false;
   expanded: boolean = false;
   expandedHeight: string;
+
   cartTotal: number = 0;
   username:string
   email:string
   showmsg: boolean = false;
-  changeDetectorRef: ChangeDetectorRef
+  changeDetectorRef: ChangeDetectorRef;
+
+  count$: Observable<number>;
 
   @Input() inputNumProducts: number;
 
-  constructor(private cartService: CartService, private notificationService: NotificationService, changeDetectorRef: ChangeDetectorRef) {
+  constructor(public cartService: CartService, private notificationService: NotificationService,
+    changeDetectorRef: ChangeDetectorRef,private store: Store<{ count: number }>) {
     this.changeDetectorRef = changeDetectorRef;
+    this.count$ = store.pipe(select('count'));
+    this.numProducts =  this.cartService.displayItems();
+
   }
 
   ngOnInit() {
-
-    this.numProducts = this.inputNumProducts;
-
-    console.log( this.numProducts + 'this.numProducts' );
+ //   this.numProducts = this.inputNumProducts;
+    this.numProducts =  this.cartService.displayItems();
     this.expandedHeight = '0';
-
+    this.products = this.cartService.displayProduct();
     this.cartService.productAdded$.subscribe(data => {
-      this.products = data.products
-      this.cartTotal = data.cartTotal
+      this.products = data.products;
+      console.log('in product length', this.products);
+      this.cartTotal = data.cartTotal;
       this.numProducts = data.products.reduce((acc, product) => {
-        acc+=1
+        acc += 1;
         return acc
-      }, 0)
+      }, 0);
 
       // Make a plop animation
       if(this.numProducts > 1){
@@ -63,8 +70,14 @@ export class CartComponent implements OnInit {
       if (!this.products.length){
         this.expanded = false;
       }
-      this.changeDetectorRef.detectChanges()
-    })
+      this.changeDetectorRef.detectChanges();
+
+    });
+
+    if(this.numProducts>0){
+      this.expandedHeight = (this.products.length * PRODUCT_HEIGHT + OFFSET_HEIGHT) + 'px';
+    }
+
   }
 
   deleteProduct(product){
