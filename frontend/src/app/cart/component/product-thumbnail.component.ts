@@ -20,7 +20,7 @@ export class ProductThumbnailComponent implements OnInit {
   ngOnInit() {
     this.detailViewActive = false;
     if (this.item.image) {
-    this.image_url = this.cartService.domain_url + '/images/items/item-' + this.item.image + '.png';
+    this.image_url = this.cartService.domain_url + '/images/items/' + this.item.partnumber + '.jpg';
     } else {
       this.image_url = '../../assets/img/itemicon.png';
     }

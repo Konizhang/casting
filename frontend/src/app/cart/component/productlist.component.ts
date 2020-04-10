@@ -131,7 +131,9 @@ export class ProductlistComponent implements OnInit {
     this.page = i;
     this.getitems( this.category_id,i);
 
-    if(i == this.totalPages||(i == (this.totalPages-1))){
+    if (i <= 3) {
+      this.npages = [1, 2, 3, 4, 5];
+    }else if(i == this.totalPages||(i == (this.totalPages-1))){
       this.npages = [this.totalPages-4, this.totalPages-3, this.totalPages-2, this.totalPages-1, this.totalPages];
     }else{
 

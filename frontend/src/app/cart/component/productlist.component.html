@@ -37,10 +37,10 @@
 
          <ul class="pagination">
 
-          <li [ngClass]="{isDisabled:page === 1}">
+          <li [ngClass]="{isDisabled:page <= 3}">
                 <a  (click)="setFirstePages(1,$event)"  class="current-page">First</a>
           </li>
-          <li [ngClass]="{isDisabled:page === 1}">
+          <li [ngClass]="{isDisabled:page  <= 3}">
                 <a  (click)="setPrePages(page - 1,$event)" class="current-page">Previous</a>
           </li>
 
